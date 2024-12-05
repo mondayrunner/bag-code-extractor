@@ -1,317 +1,168 @@
-import { ref, nextTick } from 'vue'
+import type { SearchResult } from '~/types/bag'
 
-interface SearchResult {
-  nummeraanduidingId: string
-  verblijfsobjectId: string
-  address: string
-  gebruiksdoel: string
-  bouwjaar: string
-  status: string
-  oppervlakte: string | number
-  gemeente: string
-  pandId?: string
-  relatedAddresses: any[]
-  timestamp?: number
-}
-
-interface SearchHistoryItem {
+interface HistoryItem {
   id: string
+  address: string
   lastSearched: number
   results: SearchResult[]
 }
 
-interface SearchHistory {
-  [key: string]: SearchHistoryItem
+interface BagResponse {
+  _embedded?: {
+    adressen?: Array<{
+      identificatie: string
+      postcode: string
+      huisnummer: string
+      huisletter?: string
+      huisnummertoevoeging?: string
+      korteNaam: string
+      woonplaatsNaam: string
+      status?: { omschrijving: string }
+      gebruiksdoel?: string[]
+      oppervlakte?: number
+      bouwjaar?: string
+      nummeraanduidingIdentificatie: string
+      geometry?: { coordinates: [number, number] }
+      documentdatum?: string
+      documentnummer?: string
+      voorkomenidentificatie?: number
+    }>
+  }
 }
 
-// Create shared state outside the composable
-const results = ref<SearchResult[]>([])
-const loading = ref(false)
-const error = ref('')
-const debugInfo = ref('')
-const searchHistory = ref<SearchHistory>({})
-const initialized = ref(false)
-
 export const useBagApi = () => {
-  console.log('Initializing useBagApi')
+  const config = useRuntimeConfig()
+  const loading = ref(false)
+  const error = ref<string | null>(null)
+  const results = ref<SearchResult[]>([])
+  const debugInfo = ref<string>('')
 
-  // Load search history from localStorage
-  const loadSearchHistory = () => {
-    console.log('Loading search history, initialized:', initialized.value)
-    if (process.client && !initialized.value) {
-      try {
-        const stored = localStorage.getItem('bagSearchHistory')
-        console.log('Stored history:', stored)
-        if (stored) {
-          searchHistory.value = JSON.parse(stored)
-          console.log('Parsed history:', searchHistory.value)
-        }
-        initialized.value = true
-      } catch (err) {
-        console.error('Error loading search history:', err)
+  const getHistory = (): HistoryItem[] => {
+    if (!process.client) return []
+    try {
+      const stored = localStorage.getItem('bagSearchHistory')
+      console.log('Loading search history:', stored)
+      if (!stored) return []
+      
+      const parsed = JSON.parse(stored)
+      if (!Array.isArray(parsed)) {
+        console.warn('Invalid history format, resetting')
+        localStorage.removeItem('bagSearchHistory')
+        return []
       }
+      
+      return parsed
+    } catch (err) {
+      console.error('Error loading history:', err)
+      return []
     }
   }
 
-  // Save search history to localStorage
-  const saveSearchHistory = () => {
-    console.log('Saving search history:', searchHistory.value)
-    if (process.client) {
-      try {
-        localStorage.setItem('bagSearchHistory', JSON.stringify(searchHistory.value))
-        console.log('History saved successfully')
-      } catch (err) {
-        console.error('Error saving search history:', err)
-      }
-    }
-  }
+  const addToHistory = (address: string, searchResults: SearchResult[]) => {
+    if (!searchResults || searchResults.length === 0) return
+    console.log('Adding to history:', { address, searchResults })
 
-  // Add search result to history
-  const addToHistory = (searchResults: SearchResult[]) => {
-    console.log('Adding to history:', searchResults)
-    if (!searchResults.length) return
-
-    const timestamp = Date.now()
-    const address = searchResults[0].address
-    const id = `${timestamp}`
-
-    // Update or add to history
-    searchHistory.value[address] = {
-      id,
-      lastSearched: timestamp,
-      results: searchResults.map(result => ({
-        ...result,
-        timestamp
-      }))
-    }
-
-    console.log('Updated history:', searchHistory.value)
-    saveSearchHistory()
-  }
-
-  // Get sorted search history
-  const getSortedHistory = () => {
-    console.log('Getting sorted history')
-    loadSearchHistory() // Ensure history is loaded when needed
-    const sorted = Object.entries(searchHistory.value)
-      .sort(([, a], [, b]) => b.lastSearched - a.lastSearched)
-      .map(([address, data]) => ({
+    try {
+      const mainResult = searchResults[0]
+      const historyItem: HistoryItem = {
+        id: mainResult.bagNummeraanduidingId,
         address,
-        id: data.id,
-        lastSearched: data.lastSearched,
-        results: data.results
-      }))
-    console.log('Sorted history:', sorted)
-    return sorted
+        lastSearched: Date.now(),
+        results: searchResults
+      }
+
+      const history = getHistory()
+      const existingIndex = history.findIndex(item => item.id === historyItem.id)
+      
+      if (existingIndex !== -1) {
+        // Update existing item
+        history[existingIndex] = historyItem
+      } else {
+        // Add new item
+        history.unshift(historyItem)
+        // Keep only the last 10 items
+        if (history.length > 10) {
+          history.pop()
+        }
+      }
+
+      localStorage.setItem('bagSearchHistory', JSON.stringify(history))
+      console.log('Updated history:', history)
+    } catch (err) {
+      console.error('Error adding to history:', err)
+    }
   }
 
-  // Clear search history
-  const clearHistory = () => {
-    console.log('Clearing history')
-    searchHistory.value = {}
-    saveSearchHistory()
-  }
-
-  // Load history on initialization
-  if (process.client) {
-    console.log('Client-side initialization')
-    nextTick(() => {
-      loadSearchHistory()
-    })
+  const searchHistory = {
+    getSorted: () => {
+      const history = getHistory()
+      console.log('Getting sorted history')
+      return [...history].sort((a, b) => b.lastSearched - a.lastSearched)
+    },
+    clear: () => {
+      if (process.client) {
+        localStorage.removeItem('bagSearchHistory')
+      }
+    }
   }
 
   const fetchBagData = async (postcode: string, huisnummer: string) => {
     loading.value = true
-    error.value = ''
-    debugInfo.value = ''
+    error.value = null
     results.value = []
+    debugInfo.value = ''
 
     try {
       const formattedPostcode = postcode.replace(/\s+/g, '').toUpperCase()
-      const apiUrl = `/api/bag/nummeraanduidingen?postcode=${formattedPostcode}&huisnummer=${huisnummer}`
+      const endpoint = `/api/bag/adressenuitgebreid?postcode=${formattedPostcode}&huisnummer=${huisnummer}`
       
-      debugInfo.value = `Fetching from URL: ${apiUrl}\n`
-      
-      // First, get the nummeraanduiding
-      const response = await fetch(apiUrl)
-      
-      if (!response.ok) {
-        const responseText = await response.text()
-        debugInfo.value += `API Response (${response.status}): ${responseText}\n`
-        throw new Error(`Failed to fetch address data: ${response.status} ${response.statusText}`)
+      console.log('Fetching BAG data from:', endpoint)
+      const response = await $fetch<BagResponse>(endpoint)
+      console.log('BAG API response:', response)
+
+      if (response._embedded?.adressen) {
+        results.value = response._embedded.adressen.map(adres => ({
+          identificatie: adres.identificatie,
+          postcode: adres.postcode,
+          huisnummer: adres.huisnummer,
+          huisletter: adres.huisletter,
+          huisnummertoevoeging: adres.huisnummertoevoeging,
+          straat: adres.korteNaam,
+          woonplaats: adres.woonplaatsNaam,
+          status: adres.status?.omschrijving || 'Onbekend',
+          gebruiksdoel: adres.gebruiksdoel || [],
+          oppervlakte: adres.oppervlakte,
+          bouwjaar: adres.bouwjaar,
+          bagNummeraanduidingId: adres.nummeraanduidingIdentificatie,
+          geometry: adres.geometry,
+          documentdatum: adres.documentdatum,
+          documentnummer: adres.documentnummer,
+          voorkomenidentificatie: adres.voorkomenidentificatie
+        }))
+
+        if (results.value.length > 0) {
+          const address = `${results.value[0].straat} ${results.value[0].huisnummer}${results.value[0].huisletter || ''}${results.value[0].huisnummertoevoeging ? '-' + results.value[0].huisnummertoevoeging : ''}`
+          addToHistory(address, results.value)
+        }
       }
 
-      const data = await response.json()
-      debugInfo.value += `Initial response: ${JSON.stringify(data, null, 2)}\n`
-      
-      if (!data._embedded?.nummeraanduidingen) {
-        throw new Error('No results found for this address')
-      }
-
-      // Process each nummeraanduiding
-      for (const nummeraanduiding of data._embedded.nummeraanduidingen) {
-        const nummerIdentificatie = nummeraanduiding.nummeraanduiding.identificatie
-        
-        // Get verblijfsobject using the example endpoint
-        const verblijfsobjectUrl = `/api/bag/adresseerbareobjecten?nummeraanduidingIdentificatie=${nummerIdentificatie}`
-        debugInfo.value += `Fetching verblijfsobject from: ${verblijfsobjectUrl}\n`
-        
-        const verblijfsobjectResponse = await fetch(verblijfsobjectUrl)
-        
-        if (!verblijfsobjectResponse.ok) {
-          debugInfo.value += `Error fetching verblijfsobject: ${verblijfsobjectResponse.status}\n`
-          continue
-        }
-        
-        const verblijfsobjectData = await verblijfsobjectResponse.json()
-        debugInfo.value += `Verblijfsobject data: ${JSON.stringify(verblijfsobjectData, null, 2)}\n`
-        
-        if (!verblijfsobjectData._embedded?.adresseerbareObjecten?.[0]) {
-          debugInfo.value += `No verblijfsobject found in response\n`
-          continue
-        }
-        
-        const verblijfsobject = verblijfsobjectData._embedded.adresseerbareObjecten[0]
-        
-        // Get openbareruimte for street name
-        const openbareRuimteUrl = nummeraanduiding._links.ligtAanOpenbareRuimte.href
-        const openbareRuimteResponse = await fetch(`/api/bag/${openbareRuimteUrl.split('/v2/')[1]}`)
-        
-        let streetName = ''
-        if (openbareRuimteResponse.ok) {
-          const openbareRuimteData = await openbareRuimteResponse.json()
-          streetName = openbareRuimteData.openbareRuimte?.naam || ''
-        }
-
-        // Get woonplaats name
-        const woonplaatsUrl = nummeraanduiding._links.ligtInWoonplaats.href
-        const woonplaatsResponse = await fetch(`/api/bag/${woonplaatsUrl.split('/v2/')[1]}`)
-        
-        let woonplaatsName = ''
-        if (woonplaatsResponse.ok) {
-          const woonplaatsData = await woonplaatsResponse.json()
-          woonplaatsName = woonplaatsData.woonplaats?.naam || ''
-        }
-
-        // Get pand details and related verblijfsobjecten
-        let pandData = null
-        let relatedAddresses = []
-        const pandId = verblijfsobject.verblijfsobject?.verblijfsobject?.maaktDeelUitVan?.[0]
-        
-        if (pandId) {
-          // Fetch pand details
-          const pandUrl = `/api/bag/panden/${pandId}`
-          debugInfo.value += `\nFetching pand details from: ${pandUrl}\n`
-          
-          const pandResponse = await fetch(pandUrl)
-
-          if (pandResponse.ok) {
-            pandData = await pandResponse.json()
-            debugInfo.value += `Pand data: ${JSON.stringify(pandData, null, 2)}\n`
-
-            // Get all verblijfsobjecten for this pand
-            const verblijfsobjectenUrl = `/api/bag/verblijfsobjecten?pandIdentificatie=${pandId}`
-            debugInfo.value += `\nFetching all verblijfsobjecten for pand from: ${verblijfsobjectenUrl}\n`
-            
-            const verblijfsobjectenResponse = await fetch(verblijfsobjectenUrl)
-
-            if (verblijfsobjectenResponse.ok) {
-              const verblijfsobjectenData = await verblijfsobjectenResponse.json()
-              debugInfo.value += `All verblijfsobjecten in pand: ${JSON.stringify(verblijfsobjectenData, null, 2)}\n`
-
-              // Process each verblijfsobject in this pand
-              if (verblijfsobjectenData._embedded?.verblijfsobjecten) {
-                for (const relatedVerblijfsobject of verblijfsobjectenData._embedded.verblijfsobjecten) {
-                  // Skip the current verblijfsobject
-                  if (relatedVerblijfsobject.identificatie === verblijfsobject.verblijfsobject?.verblijfsobject?.identificatie) {
-                    continue
-                  }
-
-                  // Get the nummeraanduiding for this verblijfsobject
-                  const relatedNummeraanduidingUrl = relatedVerblijfsobject._links.heeftAlsHoofdAdres.href
-                  debugInfo.value += `\nFetching nummeraanduiding for verblijfsobject from: ${relatedNummeraanduidingUrl}\n`
-                  
-                  const relatedNummeraanduidingResponse = await fetch(`/api/bag/${relatedNummeraanduidingUrl.split('/v2/')[1]}`)
-
-                  if (relatedNummeraanduidingResponse.ok) {
-                    const relatedNummeraanduidingData = await relatedNummeraanduidingResponse.json()
-                    debugInfo.value += `Related nummeraanduiding data: ${JSON.stringify(relatedNummeraanduidingData, null, 2)}\n`
-
-                    // Get street name and city for related address
-                    const relatedStreetResponse = await fetch(`/api/bag/${relatedNummeraanduidingData._links.ligtAanOpenbareRuimte.href.split('/v2/')[1]}`)
-                    const relatedWoonplaatsResponse = await fetch(`/api/bag/${relatedNummeraanduidingData._links.ligtInWoonplaats.href.split('/v2/')[1]}`)
-
-                    let relatedStreetName = ''
-                    let relatedWoonplaatsName = ''
-
-                    if (relatedStreetResponse.ok) {
-                      const relatedStreetData = await relatedStreetResponse.json()
-                      relatedStreetName = relatedStreetData.openbareRuimte?.naam || ''
-                      debugInfo.value += `Related street data: ${JSON.stringify(relatedStreetData, null, 2)}\n`
-                    }
-                    if (relatedWoonplaatsResponse.ok) {
-                      const relatedWoonplaatsData = await relatedWoonplaatsResponse.json()
-                      relatedWoonplaatsName = relatedWoonplaatsData.woonplaats?.naam || ''
-                      debugInfo.value += `Related woonplaats data: ${JSON.stringify(relatedWoonplaatsData, null, 2)}\n`
-                    }
-
-                    relatedAddresses.push({
-                      nummeraanduidingId: relatedNummeraanduidingData.nummeraanduiding.identificatie,
-                      verblijfsobjectId: relatedVerblijfsobject.verblijfsobject.identificatie,
-                      address: `${relatedStreetName} ${relatedNummeraanduidingData.nummeraanduiding.huisnummer}${relatedNummeraanduidingData.nummeraanduiding.huisletter || ''}, ${relatedNummeraanduidingData.nummeraanduiding.postcode} ${relatedWoonplaatsName}`,
-                      gebruiksdoel: relatedVerblijfsobject.verblijfsobject.gebruiksdoelen?.[0] || 'Onbekend',
-                      oppervlakte: relatedVerblijfsobject.verblijfsobject.oppervlakte || 'Onbekend',
-                      status: relatedVerblijfsobject.verblijfsobject.status || 'Onbekend',
-                      gemeente: relatedWoonplaatsName || 'Onbekend'
-                    })
-                  }
-                }
-              }
-            }
-          }
-        }
-
-        results.value.push({
-          nummeraanduidingId: nummerIdentificatie,
-          verblijfsobjectId: verblijfsobject.verblijfsobject?.verblijfsobject?.identificatie || nummerIdentificatie,
-          address: `${streetName} ${nummeraanduiding.nummeraanduiding.huisnummer}${nummeraanduiding.nummeraanduiding.huisletter || ''}, ${nummeraanduiding.nummeraanduiding.postcode} ${woonplaatsName}`,
-          gebruiksdoel: verblijfsobject.verblijfsobject?.verblijfsobject?.gebruiksdoelen?.[0] || 'Onbekend',
-          bouwjaar: pandData?.pand?.oorspronkelijkBouwjaar || 'Onbekend',
-          status: verblijfsobject.verblijfsobject?.verblijfsobject?.status || nummeraanduiding.nummeraanduiding.status || 'Onbekend',
-          oppervlakte: verblijfsobject.verblijfsobject?.verblijfsobject?.oppervlakte || 'Onbekend',
-          gemeente: woonplaatsName || 'Onbekend',
-          pandId,
-          relatedAddresses
-        })
-      }
-
-      // Add results to history after successful fetch
-      if (process.client) {
-        console.log('Adding search results to history')
-        addToHistory(results.value)
-      }
+      debugInfo.value = JSON.stringify(response, null, 2)
 
     } catch (err: any) {
-      error.value = err.message || 'An error occurred while fetching the data'
-      debugInfo.value += `Error: ${err.message}\n`
-      if (err.stack) {
-        debugInfo.value += `Stack: ${err.stack}\n`
-      }
+      console.error('Error fetching BAG data:', err)
+      error.value = err.message || 'Er is een fout opgetreden bij het ophalen van de gegevens'
+      debugInfo.value = JSON.stringify(err, null, 2)
     } finally {
       loading.value = false
     }
   }
 
   return {
-    results,
     loading,
     error,
+    results,
     debugInfo,
     fetchBagData,
-    searchHistory: {
-      items: searchHistory,
-      getSorted: getSortedHistory,
-      clear: clearHistory
-    }
+    searchHistory
   }
 } 

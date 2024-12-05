@@ -1,82 +1,138 @@
 <template>
   <div>
     <div class="mb-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-4">Zoekhistorie</h2>
+      <h2 class="text-2xl font-bold text-gray-900">Zoekhistorie</h2>
     </div>
 
-    <div class="bg-white shadow rounded-lg p-4">
-      <div class="space-y-4">
-        <ClientOnly>
-          <div>
-            <template v-if="searchHistory.getSorted().length > 0">
-              <NuxtLink 
-                v-for="item in searchHistory.getSorted()" 
-                :key="item.id" 
-                :to="`/buildings/${item.id}`"
-                class="block border rounded-lg p-4 hover:bg-gray-50 cursor-pointer mb-2"
+    <div v-if="sortedHistory.length === 0" class="text-center py-12">
+      <p class="text-gray-500">Nog geen zoekgeschiedenis beschikbaar</p>
+    </div>
+
+    <div v-else class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+      <table class="min-w-full divide-y divide-gray-300">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Adres</th>
+            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Laatst gezocht</th>
+            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">BAG ID</th>
+            <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+              <span class="sr-only">Excel</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 bg-white">
+          <tr v-for="item in sortedHistory" :key="item.id">
+            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+              {{ item.address }}
+            </td>
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              {{ new Date(item.lastSearched).toLocaleString() }}
+            </td>
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+              {{ item.id }}
+            </td>
+            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+              <button 
+                @click="downloadExcel(item.results)"
+                class="text-indigo-600 hover:text-indigo-900"
               >
-                <div class="flex justify-between items-start">
-                  <div>
-                    <h4 class="font-medium">{{ item.address }}</h4>
-                    <p class="text-sm text-gray-500">Laatst gezocht: {{ new Date(item.lastSearched).toLocaleString() }}</p>
-                    <div class="mt-2 text-sm text-gray-600">
-                      <p>Bouwjaar: {{ item.results[0]?.bouwjaar || 'Onbekend' }}</p>
-                      <p>Gebruiksdoel: {{ item.results[0]?.gebruiksdoel || 'Onbekend' }}</p>
-                      <p>Oppervlakte: {{ item.results[0]?.oppervlakte ? `${item.results[0].oppervlakte} m²` : 'Onbekend' }}</p>
-                      <p>Gerelateerde adressen: {{ item.results[0]?.relatedAddresses?.length || 0 }}</p>
-                    </div>
-                  </div>
-                  <div class="text-sm text-blue-600">Details bekijken →</div>
-                </div>
-              </NuxtLink>
-
-              <div class="flex justify-end pt-4 border-t">
-                <button 
-                  @click="searchHistory.clear()"
-                  class="text-sm text-red-600 hover:text-red-800 px-3 py-1 border border-red-600 rounded hover:bg-red-50"
-                >
-                  Geschiedenis wissen
-                </button>
-              </div>
-            </template>
-
-            <div v-else class="text-gray-500 text-center py-8">
-              <p class="mb-2">Geen zoekgeschiedenis beschikbaar</p>
-              <p class="text-sm">Zoek een adres om het hier te zien verschijnen</p>
-            </div>
-          </div>
-        </ClientOnly>
-      </div>
-    </div>
-
-    <!-- Debug Information -->
-    <div class="mt-8 p-4 bg-gray-100 rounded-lg">
-      <h3 class="font-medium mb-2">Debug Information</h3>
-      <div class="space-y-2 text-sm font-mono whitespace-pre-wrap">
-        <p>Raw Search History: {{ JSON.stringify(searchHistory.items.value, null, 2) }}</p>
-        <p>Sorted History: {{ JSON.stringify(searchHistory.getSorted(), null, 2) }}</p>
-      </div>
+                Excel downloaden
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  title: 'Zoekhistorie',
-  layout: 'default'
-})
+import { utils, writeFile } from 'xlsx'
+import type { SearchResult } from '~/types/bag'
+
+const { searchHistory } = useBagApi()
+const sortedHistory = computed(() => searchHistory.getSorted())
+
+const downloadExcel = (results: SearchResult[]) => {
+  // Get all unique addresses including related ones
+  const allAddresses = results.reduce((acc: SearchResult[], result) => {
+    // Add the main result
+    acc.push(result)
+    // Add related addresses if they exist
+    if (Array.isArray(result.relatedAddresses)) {
+      acc.push(...result.relatedAddresses)
+    }
+    return acc
+  }, [])
+
+  // Remove duplicates based on identificatie
+  const uniqueAddresses = allAddresses.filter((address, index, self) =>
+    index === self.findIndex((a) => a.identificatie === address.identificatie)
+  )
+
+  // Transform data for Excel
+  const excelData = uniqueAddresses.map(result => ({
+    'Straat': result.straat || '',
+    'Huisnummer': result.huisnummer || '',
+    'Huisletter': result.huisletter || '',
+    'Toevoeging': result.huisnummertoevoeging || '',
+    'Postcode': result.postcode || '',
+    'Plaats': result.woonplaats || '',
+    'Status': result.status || 'Onbekend',
+    'Gebruiksdoel': Array.isArray(result.gebruiksdoel) ? result.gebruiksdoel.join(', ') : (result.gebruiksdoel || 'Onbekend'),
+    'Oppervlakte': result.oppervlakte ? `${result.oppervlakte}` : 'Onbekend',
+    'Bouwjaar': result.bouwjaar || 'Onbekend',
+    'BAG ID': result.bagNummeraanduidingId || result.identificatie || '',
+    'Documentdatum': result.documentdatum || '',
+    'Documentnummer': result.documentnummer || '',
+    'Voorkomenidentificatie': result.voorkomenidentificatie || '',
+    'X-coördinaat': result.geometry?.coordinates?.[0] || '',
+    'Y-coördinaat': result.geometry?.coordinates?.[1] || '',
+    'Gerelateerd adres': result.nevenadres ? 'Ja' : 'Nee'
+  }))
+
+  // Create workbook and worksheet
+  const wb = utils.book_new()
+  const ws = utils.json_to_sheet(excelData)
+
+  // Set column widths
+  const colWidths = [
+    { wch: 20 }, // Straat
+    { wch: 10 }, // Huisnummer
+    { wch: 5 },  // Huisletter
+    { wch: 10 }, // Toevoeging
+    { wch: 8 },  // Postcode
+    { wch: 15 }, // Plaats
+    { wch: 15 }, // Status
+    { wch: 30 }, // Gebruiksdoel
+    { wch: 12 }, // Oppervlakte
+    { wch: 10 }, // Bouwjaar
+    { wch: 20 }, // BAG ID
+    { wch: 12 }, // Documentdatum
+    { wch: 15 }, // Documentnummer
+    { wch: 10 }, // Voorkomenidentificatie
+    { wch: 12 }, // X-coördinaat
+    { wch: 12 }, // Y-coördinaat
+    { wch: 10 }  // Gerelateerd adres
+  ]
+  ws['!cols'] = colWidths
+
+  // Add worksheet to workbook
+  utils.book_append_sheet(wb, ws, 'BAG Gegevens')
+
+  // Generate filename with address
+  const address = results[0].straat + results[0].huisnummer
+  const filename = `BAG_${address.replace(/[^a-zA-Z0-9]/g, '_')}.xlsx`
+
+  // Download file
+  writeFile(wb, filename)
+}
 
 useHead({
   title: 'Zoekhistorie - BAG Code Extractor'
 })
 
-const { searchHistory } = useBagApi()
-
-onMounted(() => {
-  console.log('Buildings page mounted')
-  if (process.client) {
-    const stored = localStorage.getItem('bagSearchHistory')
-    console.log('Initial stored history:', stored)
-  }
+definePageMeta({
+  layout: 'default'
 })
 </script> 
