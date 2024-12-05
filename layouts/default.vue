@@ -103,7 +103,7 @@ const route = useRoute()
 
 const navigation = computed(() => [
   { name: 'Dashboard', href: '/', icon: HomeIcon, current: route.path === '/' },
-  { name: 'Zoekhistorie', href: '/buildings', icon: BuildingOfficeIcon, current: route.path.startsWith('/buildings') },
+  { name: 'Zoekhistorie', href: '/buildings', icon: BuildingOfficeIcon, current: route.path === '/buildings' },
   { name: 'Kaart', href: '/map', icon: MapIcon, current: route.path === '/map' },
 ])
 
