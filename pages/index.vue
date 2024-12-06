@@ -30,14 +30,19 @@ import AddressSearch from '~/components/AddressSearch.vue'
 import AddressDetails from '~/components/AddressDetails.vue'
 
 interface SearchParams {
-  postcode: string
-  huisnummer: string
+  postcode?: string
+  huisnummer?: string
+  pandId?: string
 }
 
-const { results, loading, error, debugInfo, fetchBagData } = useBagApi()
+const { results, loading, error, debugInfo, fetchBagData, fetchBagDataByPandId } = useBagApi()
 
-const handleSearch = async ({ postcode, huisnummer }: SearchParams) => {
-  await fetchBagData(postcode, huisnummer)
+const handleSearch = async (params: SearchParams) => {
+  if (params.pandId) {
+    await fetchBagDataByPandId(params.pandId)
+  } else if (params.postcode && params.huisnummer) {
+    await fetchBagData(params.postcode, params.huisnummer)
+  }
 }
 
 const updateResults = (newResults: any[]) => {

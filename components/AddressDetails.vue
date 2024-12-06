@@ -82,7 +82,10 @@
             <table class="min-w-full divide-y divide-gray-200">
               <thead class="bg-gray-50">
                 <tr>
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Adres</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Straat</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Huisnummer</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Postcode</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Plaats</th>
                   <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gebruiksdoel</th>
                   <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Oppervlakte</th>
                   <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
@@ -93,7 +96,10 @@
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
                 <tr v-for="(related, rIndex) in result.relatedAddresses" :key="rIndex">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ related.address || 'Onbekend' }}</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ related.street || 'Onbekend' }}</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ related.houseNumber || 'Onbekend' }}</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ related.postalCode || 'Onbekend' }}</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ related.city || 'Onbekend' }}</td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ related.gebruiksdoel || 'Onbekend' }}</td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ related.oppervlakte ? `${related.oppervlakte} m²` : 'Onbekend' }}</td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ related.status || 'Onbekend' }}</td>
@@ -130,17 +136,25 @@ import { ChevronDownIcon, ChevronUpIcon, DocumentArrowDownIcon } from '@heroicon
 import * as XLSX from 'xlsx'
 
 interface RelatedAddress {
+  nummeraanduidingId: string
+  verblijfsobjectId: string
   address: string
+  street: string
+  houseNumber: string
+  postalCode: string
+  city: string
   gebruiksdoel: string
   oppervlakte: string | number
   status: string
-  nummeraanduidingId: string
-  verblijfsobjectId: string
   gemeente: string
 }
 
 interface BuildingResult {
   address: string
+  street: string
+  houseNumber: string
+  postalCode: string
+  city: string
   gebruiksdoel: string
   bouwjaar: string
   status: string
@@ -167,7 +181,10 @@ const exportToExcel = () => {
     // Add main building data
     const mainData = {
       'Type': 'Hoofdadres',
-      'Adres': result.address || 'Onbekend',
+      'Straat': result.street || 'Onbekend',
+      'Huisnummer': result.houseNumber || 'Onbekend',
+      'Postcode': result.postalCode || 'Onbekend',
+      'Plaats': result.city || 'Onbekend',
       'Gebruiksdoel': result.gebruiksdoel || 'Onbekend',
       'Bouwjaar': result.bouwjaar || 'Onbekend',
       'Status': result.status || 'Onbekend',
@@ -184,7 +201,10 @@ const exportToExcel = () => {
       result.relatedAddresses.forEach((related: RelatedAddress) => {
         exportData.push({
           'Type': 'Gerelateerd adres',
-          'Adres': related.address || 'Onbekend',
+          'Straat': related.street || 'Onbekend',
+          'Huisnummer': related.houseNumber || 'Onbekend',
+          'Postcode': related.postalCode || 'Onbekend',
+          'Plaats': related.city || 'Onbekend',
           'Gebruiksdoel': related.gebruiksdoel || 'Onbekend',
           'Bouwjaar': result.bouwjaar || 'Onbekend', // Using main building's year
           'Status': related.status || 'Onbekend',
@@ -202,7 +222,7 @@ const exportToExcel = () => {
   const ws = XLSX.utils.json_to_sheet(exportData)
 
   // Auto-size columns
-  const colWidths = {}
+  const colWidths: { [key: string]: number } = {}
   exportData.forEach(row => {
     Object.keys(row).forEach(key => {
       const value = String(row[key])
