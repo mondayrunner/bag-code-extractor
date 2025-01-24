@@ -1,0 +1,4478 @@
+{
+  "!ref": "A1:AV40",
+  "A1": {
+    "t": "s",
+    "v": "EPA-W adressen",
+    "r": "<t>EPA-W adressen</t>",
+    "h": "EPA-W adressen",
+    "w": "EPA-W adressen"
+  },
+  "AG1": {
+    "t": "s",
+    "v": "oppervlak collectief PV totaal (m2) ",
+    "r": "<t xml:space=\"preserve\">oppervlak collectief PV totaal (m2) </t>",
+    "h": "oppervlak collectief PV totaal (m2) ",
+    "w": "oppervlak collectief PV totaal (m2) "
+  },
+  "AI1": {
+    "t": "n",
+    "v": 2000,
+    "w": "2000"
+  },
+  "AJ1": {
+    "t": "s",
+    "v": "COLLECTIEVE PV METER",
+    "r": "<t>COLLECTIEVE PV METER</t>",
+    "h": "COLLECTIEVE PV METER",
+    "w": "COLLECTIEVE PV METER"
+  },
+  "R3": {
+    "t": "s",
+    "v": "woningtype (uniek GO)",
+    "r": "<t>woningtype (uniek GO)</t>",
+    "h": "woningtype (uniek GO)",
+    "w": "woningtype (uniek GO)"
+  },
+  "S3": {
+    "t": "s",
+    "v": "spiegel",
+    "r": "<t>spiegel</t>",
+    "h": "spiegel",
+    "w": "spiegel"
+  },
+  "T3": {
+    "t": "s",
+    "v": "vloercode",
+    "r": "<t>vloercode</t>",
+    "h": "vloercode",
+    "w": "vloercode"
+  },
+  "U3": {
+    "t": "s",
+    "v": "dakcode",
+    "r": "<t>dakcode</t>",
+    "h": "dakcode",
+    "w": "dakcode"
+  },
+  "V3": {
+    "t": "s",
+    "v": "gevelcode",
+    "r": "<t>gevelcode</t>",
+    "h": "gevelcode",
+    "w": "gevelcode"
+  },
+  "W3": {
+    "t": "s",
+    "v": "oriëntatie voor- balkongevel",
+    "r": "<t>oriëntatie voor- balkongevel</t>",
+    "h": "oriëntatie voor- balkongevel",
+    "w": "oriëntatie voor- balkongevel"
+  },
+  "A4": {
+    "t": "s",
+    "v": "complexnummer",
+    "r": "<t>complexnummer</t>",
+    "h": "complexnummer",
+    "w": "complexnummer"
+  },
+  "B4": {
+    "t": "s",
+    "v": "uniek",
+    "r": "<t>uniek</t>",
+    "h": "uniek",
+    "w": "uniek"
+  },
+  "C4": {
+    "t": "s",
+    "v": "adres",
+    "r": "<t>adres</t>",
+    "h": "adres",
+    "w": "adres"
+  },
+  "D4": {
+    "t": "s",
+    "v": "nr",
+    "r": "<t>nr</t>",
+    "h": "nr",
+    "w": "nr"
+  },
+  "E4": {
+    "t": "s",
+    "v": "toevoeging",
+    "r": "<t>toevoeging</t>",
+    "h": "toevoeging",
+    "w": "toevoeging"
+  },
+  "F4": {
+    "t": "s",
+    "v": "nog een toevoeging",
+    "r": "<t>nog een toevoeging</t>",
+    "h": "nog een toevoeging",
+    "w": "nog een toevoeging"
+  },
+  "G4": {
+    "t": "s",
+    "v": "postcode",
+    "r": "<t>postcode</t>",
+    "h": "postcode",
+    "w": "postcode"
+  },
+  "H4": {
+    "t": "s",
+    "v": "plaats",
+    "r": "<t>plaats</t>",
+    "h": "plaats",
+    "w": "plaats"
+  },
+  "I4": {
+    "t": "s",
+    "v": "Type",
+    "r": "<t>Type</t>",
+    "h": "Type",
+    "w": "Type"
+  },
+  "J4": {
+    "t": "s",
+    "v": "aantal_type",
+    "r": "<t>aantal_type</t>",
+    "h": "aantal_type",
+    "w": "aantal_type"
+  },
+  "K4": {
+    "t": "s",
+    "v": "VHE-nr",
+    "r": "<t>VHE-nr</t>",
+    "h": "VHE-nr",
+    "w": "VHE-nr"
+  },
+  "L4": {
+    "t": "s",
+    "v": "bouwlaag",
+    "r": "<t>bouwlaag</t>",
+    "h": "bouwlaag",
+    "w": "bouwlaag"
+  },
+  "M4": {
+    "t": "s",
+    "v": "bouwdeel",
+    "r": "<t>bouwdeel</t>",
+    "h": "bouwdeel",
+    "w": "bouwdeel"
+  },
+  "N4": {
+    "t": "s",
+    "v": "bezocht",
+    "r": "<t>bezocht</t>",
+    "h": "bezocht",
+    "w": "bezocht"
+  },
+  "O4": {
+    "t": "s",
+    "v": "GO",
+    "r": "<t>GO</t>",
+    "h": "GO",
+    "w": "GO"
+  },
+  "P4": {
+    "t": "s",
+    "v": "GEO-type",
+    "r": "<t>GEO-type</t>",
+    "h": "GEO-type",
+    "w": "GEO-type"
+  },
+  "Q4": {
+    "t": "s",
+    "v": "I-code",
+    "r": "<t>I-code</t>",
+    "h": "I-code",
+    "w": "I-code"
+  },
+  "R4": {
+    "t": "s",
+    "v": "woningtype (uniek GO)",
+    "r": "<t>woningtype (uniek GO)</t>",
+    "h": "woningtype (uniek GO)",
+    "w": "woningtype (uniek GO)"
+  },
+  "S4": {
+    "t": "s",
+    "v": "spiegel",
+    "r": "<t>spiegel</t>",
+    "h": "spiegel",
+    "w": "spiegel"
+  },
+  "T4": {
+    "t": "s",
+    "v": "vloercode",
+    "r": "<t>vloercode</t>",
+    "h": "vloercode",
+    "w": "vloercode"
+  },
+  "U4": {
+    "t": "s",
+    "v": "dakcode",
+    "r": "<t>dakcode</t>",
+    "h": "dakcode",
+    "w": "dakcode"
+  },
+  "V4": {
+    "t": "s",
+    "v": "gevelcode",
+    "r": "<t>gevelcode</t>",
+    "h": "gevelcode",
+    "w": "gevelcode"
+  },
+  "W4": {
+    "t": "s",
+    "v": "oriëntatie voor- balkongevel",
+    "r": "<t>oriëntatie voor- balkongevel</t>",
+    "h": "oriëntatie voor- balkongevel",
+    "w": "oriëntatie voor- balkongevel"
+  },
+  "X4": {
+    "t": "s",
+    "v": "Keteltype",
+    "r": "<t>Keteltype</t>",
+    "h": "Keteltype",
+    "w": "Keteltype"
+  },
+  "Y4": {
+    "t": "s",
+    "v": "ketelcode",
+    "r": "<t>ketelcode</t>",
+    "h": "ketelcode",
+    "w": "ketelcode",
+    "c": [
+      {
+        "a": "Wouter",
+        "t": "Overeenkomstige ketels dezelfde letter geven",
+        "r": "<r><rPr><b/><sz val=\"9\"/><color indexed=\"81\"/><rFont val=\"Tahoma\"/><family val=\"2\"/></rPr><t>Overeenkomstige ketels dezelfde letter geven</t></r>",
+        "T": false,
+        "h": "<span style=\"font-size:9pt;\"><b>Overeenkomstige ketels dezelfde letter geven</b></span>"
+      }
+    ]
+  },
+  "Z4": {
+    "t": "s",
+    "v": "MV-type",
+    "r": "<t>MV-type</t>",
+    "h": "MV-type",
+    "w": "MV-type",
+    "c": [
+      {
+        "a": "Wouter",
+        "t": "MV-Type omschrijving indien niet conform MV lijst\n",
+        "r": "<r><rPr><b/><sz val=\"9\"/><color indexed=\"81\"/><rFont val=\"Tahoma\"/><family val=\"2\"/></rPr><t xml:space=\"preserve\">MV-Type omschrijving indien niet conform MV lijst\r\n</t></r>",
+        "T": false,
+        "h": "<span style=\"font-size:9pt;\"><b>MV-Type omschrijving indien niet conform MV lijst<br/></b></span>"
+      }
+    ]
+  },
+  "AA4": {
+    "t": "s",
+    "v": "MV-code",
+    "r": "<t>MV-code</t>",
+    "h": "MV-code",
+    "w": "MV-code"
+  },
+  "AB4": {
+    "t": "s",
+    "v": "kk",
+    "r": "<t>kk</t>",
+    "h": "kk",
+    "w": "kk"
+  },
+  "AC4": {
+    "t": "s",
+    "v": "bk",
+    "r": "<t>bk</t>",
+    "h": "bk",
+    "w": "bk"
+  },
+  "AD4": {
+    "t": "s",
+    "v": "LL",
+    "r": "<t>LL</t>",
+    "h": "LL",
+    "w": "LL",
+    "c": [
+      {
+        "a": "Wouter",
+        "t": "Type Leidinglengte",
+        "r": "<r><rPr><b/><sz val=\"9\"/><color indexed=\"81\"/><rFont val=\"Tahoma\"/><family val=\"2\"/></rPr><t>Type Leidinglengte</t></r>",
+        "T": false,
+        "h": "<span style=\"font-size:9pt;\"><b>Type Leidinglengte</b></span>"
+      }
+    ]
+  },
+  "AE4": {
+    "t": "s",
+    "v": "aantal",
+    "r": "<t>aantal</t>",
+    "h": "aantal",
+    "w": "aantal"
+  },
+  "AF4": {
+    "t": "s",
+    "v": "oriëntatie",
+    "r": "<t>oriëntatie</t>",
+    "h": "oriëntatie",
+    "w": "oriëntatie"
+  },
+  "AG4": {
+    "t": "s",
+    "v": "WP",
+    "r": "<t>WP</t>",
+    "h": "WP",
+    "w": "WP"
+  },
+  "AH4": {
+    "t": "s",
+    "v": "schaduw",
+    "r": "<t>schaduw</t>",
+    "h": "schaduw",
+    "w": "schaduw",
+    "c": [
+      {
+        "a": "Wouter",
+        "t": "schaduw ja = s of nee laat leeg",
+        "r": "<r><rPr><b/><sz val=\"9\"/><color indexed=\"81\"/><rFont val=\"Tahoma\"/><family val=\"2\"/></rPr><t>schaduw ja = s of nee laat leeg</t></r>",
+        "T": false,
+        "h": "<span style=\"font-size:9pt;\"><b>schaduw ja = s of nee laat leeg</b></span>"
+      }
+    ]
+  },
+  "AI4": {
+    "t": "s",
+    "v": "PV-code",
+    "r": "<t>PV-code</t>",
+    "h": "PV-code",
+    "w": "PV-code"
+  },
+  "AJ4": {
+    "t": "s",
+    "v": "PV opp relatief",
+    "r": "<t>PV opp relatief</t>",
+    "h": "PV opp relatief",
+    "w": " PV opp relatief ",
+    "c": [
+      {
+        "a": "Wouter",
+        "t": "collectief PV - oppervlak toegekend op basis van GO woning - deze moet je nog wel zelf aan de instalaltie code toevoegen",
+        "r": "<r><rPr><b/><sz val=\"9\"/><color indexed=\"81\"/><rFont val=\"Tahoma\"/><family val=\"2\"/></rPr><t>collectief PV - oppervlak toegekend op basis van GO woning - deze moet je nog wel zelf aan de instalaltie code toevoegen</t></r>",
+        "T": false,
+        "h": "<span style=\"font-size:9pt;\"><b>collectief PV - oppervlak toegekend op basis van GO woning - deze moet je nog wel zelf aan de instalaltie code toevoegen</b></span>"
+      }
+    ]
+  },
+  "B5": {
+    "t": "s",
+    "v": "4208BP1",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP1",
+    "w": "4208BP1"
+  },
+  "C5": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D5": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "G5": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H5": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I5": {
+    "t": "s",
+    "v": "Ck111-NW-AA",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Ck111-NW-AA",
+    "w": "Ck111-NW-AA"
+  },
+  "J5": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P5": {
+    "t": "s",
+    "v": "Ck111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Ck111",
+    "w": "Ck111"
+  },
+  "Q5": {
+    "t": "s",
+    "v": "AA",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AA",
+    "w": "AA"
+  },
+  "R5": {
+    "t": "s",
+    "v": "Ck",
+    "r": "<t>Ck</t>",
+    "h": "Ck",
+    "w": "Ck"
+  },
+  "T5": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U5": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V5": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W5": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X5": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y5": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI5": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AJ5": {
+    "t": "e",
+    "v": 7,
+    "f": "(O5/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B6": {
+    "t": "s",
+    "v": "4208BP3",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP3",
+    "w": "4208BP3"
+  },
+  "C6": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D6": {
+    "t": "n",
+    "v": 3,
+    "w": "3"
+  },
+  "G6": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H6": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I6": {
+    "t": "s",
+    "v": "Cd110-NW-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cd110-NW-A",
+    "w": "Cd110-NW-A"
+  },
+  "J6": {
+    "t": "n",
+    "v": 4,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "4"
+  },
+  "P6": {
+    "t": "s",
+    "v": "Cd110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cd110",
+    "w": "Cd110"
+  },
+  "Q6": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R6": {
+    "t": "s",
+    "v": "Cd",
+    "r": "<t>Cd</t>",
+    "h": "Cd",
+    "w": "Cd"
+  },
+  "T6": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U6": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V6": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W6": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X6": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y6": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI6": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ6": {
+    "t": "e",
+    "v": 7,
+    "f": "(O6/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B7": {
+    "t": "s",
+    "v": "4208BP5",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP5",
+    "w": "4208BP5"
+  },
+  "C7": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D7": {
+    "t": "n",
+    "v": 5,
+    "w": "5"
+  },
+  "G7": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H7": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I7": {
+    "t": "s",
+    "v": "C110-NW-AA",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "C110-NW-AA",
+    "w": "C110-NW-AA"
+  },
+  "J7": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P7": {
+    "t": "s",
+    "v": "C110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "C110",
+    "w": "C110"
+  },
+  "Q7": {
+    "t": "s",
+    "v": "AA",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AA",
+    "w": "AA"
+  },
+  "R7": {
+    "t": "s",
+    "v": "C",
+    "r": "<t>C</t>",
+    "h": "C",
+    "w": "C"
+  },
+  "T7": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U7": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V7": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W7": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X7": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y7": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI7": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AJ7": {
+    "t": "e",
+    "v": 7,
+    "f": "(O7/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B8": {
+    "t": "s",
+    "v": "4208BP7",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP7",
+    "w": "4208BP7"
+  },
+  "C8": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D8": {
+    "t": "n",
+    "v": 7,
+    "w": "7"
+  },
+  "G8": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H8": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I8": {
+    "t": "s",
+    "v": "C110-NW-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "C110-NW-A",
+    "w": "C110-NW-A"
+  },
+  "J8": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P8": {
+    "t": "s",
+    "v": "C110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "C110",
+    "w": "C110"
+  },
+  "Q8": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R8": {
+    "t": "s",
+    "v": "C",
+    "r": "<t>C</t>",
+    "h": "C",
+    "w": "C"
+  },
+  "T8": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U8": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V8": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W8": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X8": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y8": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI8": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ8": {
+    "t": "e",
+    "v": 7,
+    "f": "(O8/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B9": {
+    "t": "s",
+    "v": "4208BP9",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP9",
+    "w": "4208BP9"
+  },
+  "C9": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D9": {
+    "t": "n",
+    "v": 9,
+    "w": "9"
+  },
+  "G9": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H9": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I9": {
+    "t": "s",
+    "v": "Cd110-NW-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cd110-NW-A",
+    "w": "Cd110-NW-A"
+  },
+  "J9": {
+    "t": "n",
+    "v": 4,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "4"
+  },
+  "P9": {
+    "t": "s",
+    "v": "Cd110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cd110",
+    "w": "Cd110"
+  },
+  "Q9": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R9": {
+    "t": "s",
+    "v": "Cd",
+    "r": "<t>Cd</t>",
+    "h": "Cd",
+    "w": "Cd"
+  },
+  "T9": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U9": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V9": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W9": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X9": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y9": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI9": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ9": {
+    "t": "e",
+    "v": 7,
+    "f": "(O9/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B10": {
+    "t": "s",
+    "v": "4208BP11",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP11",
+    "w": "4208BP11"
+  },
+  "C10": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D10": {
+    "t": "n",
+    "v": 11,
+    "w": "11"
+  },
+  "G10": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H10": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I10": {
+    "t": "s",
+    "v": "Ck2s111-NW-AA",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Ck2s111-NW-AA",
+    "w": "Ck2s111-NW-AA"
+  },
+  "J10": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P10": {
+    "t": "s",
+    "v": "Ck2s111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Ck2s111",
+    "w": "Ck2s111"
+  },
+  "Q10": {
+    "t": "s",
+    "v": "AA",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AA",
+    "w": "AA"
+  },
+  "R10": {
+    "t": "s",
+    "v": "Ck2",
+    "r": "<t>Ck2</t>",
+    "h": "Ck2",
+    "w": "Ck2"
+  },
+  "S10": {
+    "t": "s",
+    "v": "s",
+    "r": "<t>s</t>",
+    "h": "s",
+    "w": "s"
+  },
+  "T10": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U10": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V10": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W10": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X10": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y10": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI10": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AJ10": {
+    "t": "e",
+    "v": 7,
+    "f": "(O10/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B11": {
+    "t": "s",
+    "v": "4208BP13",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP13",
+    "w": "4208BP13"
+  },
+  "C11": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D11": {
+    "t": "n",
+    "v": 13,
+    "w": "13"
+  },
+  "G11": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H11": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I11": {
+    "t": "s",
+    "v": "Ck2111-NW-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Ck2111-NW-A",
+    "w": "Ck2111-NW-A"
+  },
+  "J11": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P11": {
+    "t": "s",
+    "v": "Ck2111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Ck2111",
+    "w": "Ck2111"
+  },
+  "Q11": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R11": {
+    "t": "s",
+    "v": "Ck2",
+    "r": "<t>Ck2</t>",
+    "h": "Ck2",
+    "w": "Ck2"
+  },
+  "T11": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U11": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V11": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W11": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X11": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y11": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI11": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ11": {
+    "t": "e",
+    "v": 7,
+    "f": "(O11/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B12": {
+    "t": "s",
+    "v": "4208BP15",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP15",
+    "w": "4208BP15"
+  },
+  "C12": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D12": {
+    "t": "n",
+    "v": 15,
+    "w": "15"
+  },
+  "G12": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H12": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I12": {
+    "t": "s",
+    "v": "Cd110-NW-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cd110-NW-A",
+    "w": "Cd110-NW-A"
+  },
+  "J12": {
+    "t": "n",
+    "v": 4,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "4"
+  },
+  "P12": {
+    "t": "s",
+    "v": "Cd110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cd110",
+    "w": "Cd110"
+  },
+  "Q12": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R12": {
+    "t": "s",
+    "v": "Cd",
+    "r": "<t>Cd</t>",
+    "h": "Cd",
+    "w": "Cd"
+  },
+  "T12": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U12": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V12": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W12": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X12": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y12": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI12": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ12": {
+    "t": "e",
+    "v": 7,
+    "f": "(O12/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B13": {
+    "t": "s",
+    "v": "4208BP17",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP17",
+    "w": "4208BP17"
+  },
+  "C13": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D13": {
+    "t": "n",
+    "v": 17,
+    "w": "17"
+  },
+  "G13": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H13": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I13": {
+    "t": "s",
+    "v": "C110-NW-AA",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "C110-NW-AA",
+    "w": "C110-NW-AA"
+  },
+  "J13": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P13": {
+    "t": "s",
+    "v": "C110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "C110",
+    "w": "C110"
+  },
+  "Q13": {
+    "t": "s",
+    "v": "AA",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AA",
+    "w": "AA"
+  },
+  "R13": {
+    "t": "s",
+    "v": "C",
+    "r": "<t>C</t>",
+    "h": "C",
+    "w": "C"
+  },
+  "T13": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U13": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V13": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W13": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X13": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y13": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI13": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AJ13": {
+    "t": "e",
+    "v": 7,
+    "f": "(O13/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B14": {
+    "t": "s",
+    "v": "4208BP19",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP19",
+    "w": "4208BP19"
+  },
+  "C14": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D14": {
+    "t": "n",
+    "v": 19,
+    "w": "19"
+  },
+  "G14": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H14": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I14": {
+    "t": "s",
+    "v": "C110-NW-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "C110-NW-A",
+    "w": "C110-NW-A"
+  },
+  "J14": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P14": {
+    "t": "s",
+    "v": "C110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "C110",
+    "w": "C110"
+  },
+  "Q14": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R14": {
+    "t": "s",
+    "v": "C",
+    "r": "<t>C</t>",
+    "h": "C",
+    "w": "C"
+  },
+  "T14": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U14": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V14": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W14": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X14": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y14": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI14": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ14": {
+    "t": "e",
+    "v": 7,
+    "f": "(O14/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B15": {
+    "t": "s",
+    "v": "4208BP21",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP21",
+    "w": "4208BP21"
+  },
+  "C15": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D15": {
+    "t": "n",
+    "v": 21,
+    "w": "21"
+  },
+  "G15": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H15": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I15": {
+    "t": "s",
+    "v": "Cd110-NW-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cd110-NW-A",
+    "w": "Cd110-NW-A"
+  },
+  "J15": {
+    "t": "n",
+    "v": 4,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "4"
+  },
+  "P15": {
+    "t": "s",
+    "v": "Cd110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cd110",
+    "w": "Cd110"
+  },
+  "Q15": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R15": {
+    "t": "s",
+    "v": "Cd",
+    "r": "<t>Cd</t>",
+    "h": "Cd",
+    "w": "Cd"
+  },
+  "T15": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U15": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V15": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W15": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X15": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y15": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI15": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ15": {
+    "t": "e",
+    "v": 7,
+    "f": "(O15/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B16": {
+    "t": "s",
+    "v": "4208BP23",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP23",
+    "w": "4208BP23"
+  },
+  "C16": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D16": {
+    "t": "n",
+    "v": 23,
+    "w": "23"
+  },
+  "G16": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H16": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I16": {
+    "t": "s",
+    "v": "Cks111-NW-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cks111-NW-A",
+    "w": "Cks111-NW-A"
+  },
+  "J16": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P16": {
+    "t": "s",
+    "v": "Cks111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cks111",
+    "w": "Cks111"
+  },
+  "Q16": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R16": {
+    "t": "s",
+    "v": "Ck",
+    "r": "<t>Ck</t>",
+    "h": "Ck",
+    "w": "Ck"
+  },
+  "S16": {
+    "t": "s",
+    "v": "s",
+    "r": "<t>s</t>",
+    "h": "s",
+    "w": "s"
+  },
+  "T16": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U16": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V16": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W16": {
+    "t": "s",
+    "v": "NW",
+    "r": "<t>NW</t>",
+    "h": "NW",
+    "w": "NW"
+  },
+  "X16": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y16": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI16": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ16": {
+    "t": "e",
+    "v": 7,
+    "f": "(O16/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B17": {
+    "t": "s",
+    "v": "4208BP25",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP25",
+    "w": "4208BP25"
+  },
+  "C17": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D17": {
+    "t": "n",
+    "v": 25,
+    "w": "25"
+  },
+  "G17": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H17": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I17": {
+    "t": "s",
+    "v": "Ck111-W-AV",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Ck111-W-AV",
+    "w": "Ck111-W-AV"
+  },
+  "J17": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P17": {
+    "t": "s",
+    "v": "Ck111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Ck111",
+    "w": "Ck111"
+  },
+  "Q17": {
+    "t": "s",
+    "v": "AV",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AV",
+    "w": "AV"
+  },
+  "R17": {
+    "t": "s",
+    "v": "Ck",
+    "r": "<t>Ck</t>",
+    "h": "Ck",
+    "w": "Ck"
+  },
+  "T17": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U17": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V17": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W17": {
+    "t": "s",
+    "v": "W",
+    "r": "<t>W</t>",
+    "h": "W",
+    "w": "W"
+  },
+  "X17": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y17": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI17": {
+    "t": "s",
+    "v": "V",
+    "r": "<t>V</t>",
+    "h": "V",
+    "w": "V"
+  },
+  "AJ17": {
+    "t": "e",
+    "v": 7,
+    "f": "(O17/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B18": {
+    "t": "s",
+    "v": "4208BP27",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP27",
+    "w": "4208BP27"
+  },
+  "C18": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D18": {
+    "t": "n",
+    "v": 27,
+    "w": "27"
+  },
+  "G18": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H18": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I18": {
+    "t": "s",
+    "v": "Cd110-W-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cd110-W-A",
+    "w": "Cd110-W-A"
+  },
+  "J18": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P18": {
+    "t": "s",
+    "v": "Cd110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cd110",
+    "w": "Cd110"
+  },
+  "Q18": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R18": {
+    "t": "s",
+    "v": "Cd",
+    "r": "<t>Cd</t>",
+    "h": "Cd",
+    "w": "Cd"
+  },
+  "T18": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U18": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V18": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W18": {
+    "t": "s",
+    "v": "W",
+    "r": "<t>W</t>",
+    "h": "W",
+    "w": "W"
+  },
+  "X18": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y18": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI18": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ18": {
+    "t": "e",
+    "v": 7,
+    "f": "(O18/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B19": {
+    "t": "s",
+    "v": "4208BP29",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP29",
+    "w": "4208BP29"
+  },
+  "C19": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D19": {
+    "t": "n",
+    "v": 29,
+    "w": "29"
+  },
+  "G19": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H19": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I19": {
+    "t": "s",
+    "v": "C110-W-AV",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "C110-W-AV",
+    "w": "C110-W-AV"
+  },
+  "J19": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P19": {
+    "t": "s",
+    "v": "C110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "C110",
+    "w": "C110"
+  },
+  "Q19": {
+    "t": "s",
+    "v": "AV",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AV",
+    "w": "AV"
+  },
+  "R19": {
+    "t": "s",
+    "v": "C",
+    "r": "<t>C</t>",
+    "h": "C",
+    "w": "C"
+  },
+  "T19": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U19": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V19": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W19": {
+    "t": "s",
+    "v": "W",
+    "r": "<t>W</t>",
+    "h": "W",
+    "w": "W"
+  },
+  "X19": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y19": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI19": {
+    "t": "s",
+    "v": "V",
+    "r": "<t>V</t>",
+    "h": "V",
+    "w": "V"
+  },
+  "AJ19": {
+    "t": "e",
+    "v": 7,
+    "f": "(O19/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B20": {
+    "t": "s",
+    "v": "4208BP31",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP31",
+    "w": "4208BP31"
+  },
+  "C20": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D20": {
+    "t": "n",
+    "v": 31,
+    "w": "31"
+  },
+  "G20": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H20": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I20": {
+    "t": "s",
+    "v": "C110-W-AV",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "C110-W-AV",
+    "w": "C110-W-AV"
+  },
+  "J20": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P20": {
+    "t": "s",
+    "v": "C110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "C110",
+    "w": "C110"
+  },
+  "Q20": {
+    "t": "s",
+    "v": "AV",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AV",
+    "w": "AV"
+  },
+  "R20": {
+    "t": "s",
+    "v": "C",
+    "r": "<t>C</t>",
+    "h": "C",
+    "w": "C"
+  },
+  "T20": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U20": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V20": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W20": {
+    "t": "s",
+    "v": "W",
+    "r": "<t>W</t>",
+    "h": "W",
+    "w": "W"
+  },
+  "X20": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y20": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI20": {
+    "t": "s",
+    "v": "V",
+    "r": "<t>V</t>",
+    "h": "V",
+    "w": "V"
+  },
+  "AJ20": {
+    "t": "e",
+    "v": 7,
+    "f": "(O20/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B21": {
+    "t": "s",
+    "v": "4208BP33",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP33",
+    "w": "4208BP33"
+  },
+  "C21": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D21": {
+    "t": "n",
+    "v": 33,
+    "w": "33"
+  },
+  "G21": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H21": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I21": {
+    "t": "s",
+    "v": "Cd110-W-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cd110-W-A",
+    "w": "Cd110-W-A"
+  },
+  "J21": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P21": {
+    "t": "s",
+    "v": "Cd110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cd110",
+    "w": "Cd110"
+  },
+  "Q21": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R21": {
+    "t": "s",
+    "v": "Cd",
+    "r": "<t>Cd</t>",
+    "h": "Cd",
+    "w": "Cd"
+  },
+  "T21": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U21": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V21": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W21": {
+    "t": "s",
+    "v": "W",
+    "r": "<t>W</t>",
+    "h": "W",
+    "w": "W"
+  },
+  "X21": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y21": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI21": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ21": {
+    "t": "e",
+    "v": 7,
+    "f": "(O21/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B22": {
+    "t": "s",
+    "v": "4208BP35",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP35",
+    "w": "4208BP35"
+  },
+  "C22": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D22": {
+    "t": "n",
+    "v": 35,
+    "w": "35"
+  },
+  "G22": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H22": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I22": {
+    "t": "s",
+    "v": "Cks111-W-AV",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cks111-W-AV",
+    "w": "Cks111-W-AV"
+  },
+  "J22": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P22": {
+    "t": "s",
+    "v": "Cks111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cks111",
+    "w": "Cks111"
+  },
+  "Q22": {
+    "t": "s",
+    "v": "AV",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AV",
+    "w": "AV"
+  },
+  "R22": {
+    "t": "s",
+    "v": "Ck",
+    "r": "<t>Ck</t>",
+    "h": "Ck",
+    "w": "Ck"
+  },
+  "S22": {
+    "t": "s",
+    "v": "s",
+    "r": "<t>s</t>",
+    "h": "s",
+    "w": "s"
+  },
+  "T22": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U22": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V22": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W22": {
+    "t": "s",
+    "v": "W",
+    "r": "<t>W</t>",
+    "h": "W",
+    "w": "W"
+  },
+  "X22": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y22": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI22": {
+    "t": "s",
+    "v": "V",
+    "r": "<t>V</t>",
+    "h": "V",
+    "w": "V"
+  },
+  "AJ22": {
+    "t": "e",
+    "v": 7,
+    "f": "(O22/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B23": {
+    "t": "s",
+    "v": "4208BP37",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP37",
+    "w": "4208BP37"
+  },
+  "C23": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D23": {
+    "t": "n",
+    "v": 37,
+    "w": "37"
+  },
+  "G23": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H23": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I23": {
+    "t": "s",
+    "v": "Ck111-ZW-AV",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Ck111-ZW-AV",
+    "w": "Ck111-ZW-AV"
+  },
+  "J23": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P23": {
+    "t": "s",
+    "v": "Ck111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Ck111",
+    "w": "Ck111"
+  },
+  "Q23": {
+    "t": "s",
+    "v": "AV",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AV",
+    "w": "AV"
+  },
+  "R23": {
+    "t": "s",
+    "v": "Ck",
+    "r": "<t>Ck</t>",
+    "h": "Ck",
+    "w": "Ck"
+  },
+  "T23": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U23": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V23": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W23": {
+    "t": "s",
+    "v": "ZW",
+    "r": "<t>ZW</t>",
+    "h": "ZW",
+    "w": "ZW"
+  },
+  "X23": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y23": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI23": {
+    "t": "s",
+    "v": "V",
+    "r": "<t>V</t>",
+    "h": "V",
+    "w": "V"
+  },
+  "AJ23": {
+    "t": "e",
+    "v": 7,
+    "f": "(O23/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B24": {
+    "t": "s",
+    "v": "4208BP39",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP39",
+    "w": "4208BP39"
+  },
+  "C24": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D24": {
+    "t": "n",
+    "v": 39,
+    "w": "39"
+  },
+  "G24": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H24": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I24": {
+    "t": "s",
+    "v": "Cd110-ZW-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cd110-ZW-A",
+    "w": "Cd110-ZW-A"
+  },
+  "J24": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P24": {
+    "t": "s",
+    "v": "Cd110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cd110",
+    "w": "Cd110"
+  },
+  "Q24": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R24": {
+    "t": "s",
+    "v": "Cd",
+    "r": "<t>Cd</t>",
+    "h": "Cd",
+    "w": "Cd"
+  },
+  "T24": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U24": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V24": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W24": {
+    "t": "s",
+    "v": "ZW",
+    "r": "<t>ZW</t>",
+    "h": "ZW",
+    "w": "ZW"
+  },
+  "X24": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y24": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI24": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ24": {
+    "t": "e",
+    "v": 7,
+    "f": "(O24/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B25": {
+    "t": "s",
+    "v": "4208BP41",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP41",
+    "w": "4208BP41"
+  },
+  "C25": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D25": {
+    "t": "n",
+    "v": 41,
+    "w": "41"
+  },
+  "G25": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H25": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I25": {
+    "t": "s",
+    "v": "C110-ZW-AV",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "C110-ZW-AV",
+    "w": "C110-ZW-AV"
+  },
+  "J25": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P25": {
+    "t": "s",
+    "v": "C110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "C110",
+    "w": "C110"
+  },
+  "Q25": {
+    "t": "s",
+    "v": "AV",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AV",
+    "w": "AV"
+  },
+  "R25": {
+    "t": "s",
+    "v": "C",
+    "r": "<t>C</t>",
+    "h": "C",
+    "w": "C"
+  },
+  "T25": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U25": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V25": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W25": {
+    "t": "s",
+    "v": "ZW",
+    "r": "<t>ZW</t>",
+    "h": "ZW",
+    "w": "ZW"
+  },
+  "X25": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y25": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI25": {
+    "t": "s",
+    "v": "V",
+    "r": "<t>V</t>",
+    "h": "V",
+    "w": "V"
+  },
+  "AJ25": {
+    "t": "e",
+    "v": 7,
+    "f": "(O25/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B26": {
+    "t": "s",
+    "v": "4208BP43",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP43",
+    "w": "4208BP43"
+  },
+  "C26": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D26": {
+    "t": "n",
+    "v": 43,
+    "w": "43"
+  },
+  "G26": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H26": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I26": {
+    "t": "s",
+    "v": "C110-ZW-AV",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "C110-ZW-AV",
+    "w": "C110-ZW-AV"
+  },
+  "J26": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P26": {
+    "t": "s",
+    "v": "C110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "C110",
+    "w": "C110"
+  },
+  "Q26": {
+    "t": "s",
+    "v": "AV",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AV",
+    "w": "AV"
+  },
+  "R26": {
+    "t": "s",
+    "v": "C",
+    "r": "<t>C</t>",
+    "h": "C",
+    "w": "C"
+  },
+  "T26": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U26": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V26": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W26": {
+    "t": "s",
+    "v": "ZW",
+    "r": "<t>ZW</t>",
+    "h": "ZW",
+    "w": "ZW"
+  },
+  "X26": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y26": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI26": {
+    "t": "s",
+    "v": "V",
+    "r": "<t>V</t>",
+    "h": "V",
+    "w": "V"
+  },
+  "AJ26": {
+    "t": "e",
+    "v": 7,
+    "f": "(O26/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B27": {
+    "t": "s",
+    "v": "4208BP45",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP45",
+    "w": "4208BP45"
+  },
+  "C27": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D27": {
+    "t": "n",
+    "v": 45,
+    "w": "45"
+  },
+  "G27": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H27": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I27": {
+    "t": "s",
+    "v": "Cd110-ZW-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cd110-ZW-A",
+    "w": "Cd110-ZW-A"
+  },
+  "J27": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P27": {
+    "t": "s",
+    "v": "Cd110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cd110",
+    "w": "Cd110"
+  },
+  "Q27": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R27": {
+    "t": "s",
+    "v": "Cd",
+    "r": "<t>Cd</t>",
+    "h": "Cd",
+    "w": "Cd"
+  },
+  "T27": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U27": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V27": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W27": {
+    "t": "s",
+    "v": "ZW",
+    "r": "<t>ZW</t>",
+    "h": "ZW",
+    "w": "ZW"
+  },
+  "X27": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y27": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI27": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ27": {
+    "t": "e",
+    "v": 7,
+    "f": "(O27/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B28": {
+    "t": "s",
+    "v": "4208BP47",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP47",
+    "w": "4208BP47"
+  },
+  "C28": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D28": {
+    "t": "n",
+    "v": 47,
+    "w": "47"
+  },
+  "G28": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H28": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I28": {
+    "t": "s",
+    "v": "Ckes111-ZW-AV",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Ckes111-ZW-AV",
+    "w": "Ckes111-ZW-AV"
+  },
+  "J28": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P28": {
+    "t": "s",
+    "v": "Ckes111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Ckes111",
+    "w": "Ckes111"
+  },
+  "Q28": {
+    "t": "s",
+    "v": "AV",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AV",
+    "w": "AV"
+  },
+  "R28": {
+    "t": "s",
+    "v": "Cke",
+    "r": "<t>Cke</t>",
+    "h": "Cke",
+    "w": "Cke"
+  },
+  "S28": {
+    "t": "s",
+    "v": "s",
+    "r": "<t>s</t>",
+    "h": "s",
+    "w": "s"
+  },
+  "T28": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U28": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V28": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W28": {
+    "t": "s",
+    "v": "ZW",
+    "r": "<t>ZW</t>",
+    "h": "ZW",
+    "w": "ZW"
+  },
+  "X28": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y28": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI28": {
+    "t": "s",
+    "v": "V",
+    "r": "<t>V</t>",
+    "h": "V",
+    "w": "V"
+  },
+  "AJ28": {
+    "t": "e",
+    "v": 7,
+    "f": "(O28/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B29": {
+    "t": "s",
+    "v": "4208BP77",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP77",
+    "w": "4208BP77"
+  },
+  "C29": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D29": {
+    "t": "n",
+    "v": 77,
+    "w": "77"
+  },
+  "G29": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H29": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I29": {
+    "t": "s",
+    "v": "Cke111-N-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cke111-N-A",
+    "w": "Cke111-N-A"
+  },
+  "J29": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P29": {
+    "t": "s",
+    "v": "Cke111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cke111",
+    "w": "Cke111"
+  },
+  "Q29": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R29": {
+    "t": "s",
+    "v": "Cke",
+    "r": "<t>Cke</t>",
+    "h": "Cke",
+    "w": "Cke"
+  },
+  "T29": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U29": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V29": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W29": {
+    "t": "s",
+    "v": "N",
+    "r": "<t>N</t>",
+    "h": "N",
+    "w": "N"
+  },
+  "X29": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y29": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI29": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ29": {
+    "t": "e",
+    "v": 7,
+    "f": "(O29/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B30": {
+    "t": "s",
+    "v": "4208BP79",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP79",
+    "w": "4208BP79"
+  },
+  "C30": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D30": {
+    "t": "n",
+    "v": 79,
+    "w": "79"
+  },
+  "G30": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H30": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I30": {
+    "t": "s",
+    "v": "Cd110-N-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cd110-N-A",
+    "w": "Cd110-N-A"
+  },
+  "J30": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P30": {
+    "t": "s",
+    "v": "Cd110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cd110",
+    "w": "Cd110"
+  },
+  "Q30": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R30": {
+    "t": "s",
+    "v": "Cd",
+    "r": "<t>Cd</t>",
+    "h": "Cd",
+    "w": "Cd"
+  },
+  "T30": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U30": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V30": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W30": {
+    "t": "s",
+    "v": "N",
+    "r": "<t>N</t>",
+    "h": "N",
+    "w": "N"
+  },
+  "X30": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y30": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI30": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ30": {
+    "t": "e",
+    "v": 7,
+    "f": "(O30/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B31": {
+    "t": "s",
+    "v": "4208BP81",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP81",
+    "w": "4208BP81"
+  },
+  "C31": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D31": {
+    "t": "n",
+    "v": 81,
+    "w": "81"
+  },
+  "G31": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H31": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I31": {
+    "t": "s",
+    "v": "C110-N-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "C110-N-A",
+    "w": "C110-N-A"
+  },
+  "J31": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P31": {
+    "t": "s",
+    "v": "C110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "C110",
+    "w": "C110"
+  },
+  "Q31": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R31": {
+    "t": "s",
+    "v": "C",
+    "r": "<t>C</t>",
+    "h": "C",
+    "w": "C"
+  },
+  "T31": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U31": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V31": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W31": {
+    "t": "s",
+    "v": "N",
+    "r": "<t>N</t>",
+    "h": "N",
+    "w": "N"
+  },
+  "X31": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y31": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI31": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ31": {
+    "t": "e",
+    "v": 7,
+    "f": "(O31/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B32": {
+    "t": "s",
+    "v": "4208BP83",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP83",
+    "w": "4208BP83"
+  },
+  "C32": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D32": {
+    "t": "n",
+    "v": 83,
+    "w": "83"
+  },
+  "G32": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H32": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I32": {
+    "t": "s",
+    "v": "C110-N-AA",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "C110-N-AA",
+    "w": "C110-N-AA"
+  },
+  "J32": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P32": {
+    "t": "s",
+    "v": "C110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "C110",
+    "w": "C110"
+  },
+  "Q32": {
+    "t": "s",
+    "v": "AA",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "AA",
+    "w": "AA"
+  },
+  "R32": {
+    "t": "s",
+    "v": "C",
+    "r": "<t>C</t>",
+    "h": "C",
+    "w": "C"
+  },
+  "T32": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U32": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V32": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W32": {
+    "t": "s",
+    "v": "N",
+    "r": "<t>N</t>",
+    "h": "N",
+    "w": "N"
+  },
+  "X32": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y32": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI32": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AJ32": {
+    "t": "e",
+    "v": 7,
+    "f": "(O32/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B33": {
+    "t": "s",
+    "v": "4208BP85",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP85",
+    "w": "4208BP85"
+  },
+  "C33": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D33": {
+    "t": "n",
+    "v": 85,
+    "w": "85"
+  },
+  "G33": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H33": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I33": {
+    "t": "s",
+    "v": "Cd110-N-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cd110-N-A",
+    "w": "Cd110-N-A"
+  },
+  "J33": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P33": {
+    "t": "s",
+    "v": "Cd110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cd110",
+    "w": "Cd110"
+  },
+  "Q33": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R33": {
+    "t": "s",
+    "v": "Cd",
+    "r": "<t>Cd</t>",
+    "h": "Cd",
+    "w": "Cd"
+  },
+  "T33": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U33": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V33": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W33": {
+    "t": "s",
+    "v": "N",
+    "r": "<t>N</t>",
+    "h": "N",
+    "w": "N"
+  },
+  "X33": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y33": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI33": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ33": {
+    "t": "e",
+    "v": 7,
+    "f": "(O33/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B34": {
+    "t": "s",
+    "v": "4208BP87",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BP87",
+    "w": "4208BP87"
+  },
+  "C34": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D34": {
+    "t": "n",
+    "v": 87,
+    "w": "87"
+  },
+  "G34": {
+    "t": "s",
+    "v": "4208BP",
+    "r": "<t>4208BP</t>",
+    "h": "4208BP",
+    "w": "4208BP"
+  },
+  "H34": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I34": {
+    "t": "s",
+    "v": "Cks111-N-A",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Cks111-N-A",
+    "w": "Cks111-N-A"
+  },
+  "J34": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P34": {
+    "t": "s",
+    "v": "Cks111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Cks111",
+    "w": "Cks111"
+  },
+  "Q34": {
+    "t": "s",
+    "v": "A",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "A",
+    "w": "A"
+  },
+  "R34": {
+    "t": "s",
+    "v": "Ck",
+    "r": "<t>Ck</t>",
+    "h": "Ck",
+    "w": "Ck"
+  },
+  "S34": {
+    "t": "s",
+    "v": "s",
+    "r": "<t>s</t>",
+    "h": "s",
+    "w": "s"
+  },
+  "T34": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U34": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V34": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W34": {
+    "t": "s",
+    "v": "N",
+    "r": "<t>N</t>",
+    "h": "N",
+    "w": "N"
+  },
+  "X34": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y34": {
+    "t": "s",
+    "v": "A",
+    "r": "<t>A</t>",
+    "h": "A",
+    "w": "A"
+  },
+  "AI34": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ34": {
+    "t": "e",
+    "v": 7,
+    "f": "(O34/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B35": {
+    "t": "s",
+    "v": "4208BN106",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BN106",
+    "w": "4208BN106"
+  },
+  "C35": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D35": {
+    "t": "n",
+    "v": 106,
+    "w": "106"
+  },
+  "G35": {
+    "t": "s",
+    "v": "4208BN",
+    "r": "<t>4208BN</t>",
+    "h": "4208BN",
+    "w": "4208BN"
+  },
+  "H35": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I35": {
+    "t": "s",
+    "v": "Bk2s111-Z-B",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Bk2s111-Z-B",
+    "w": "Bk2s111-Z-B"
+  },
+  "J35": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P35": {
+    "t": "s",
+    "v": "Bk2s111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Bk2s111",
+    "w": "Bk2s111"
+  },
+  "Q35": {
+    "t": "s",
+    "v": "B",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "B",
+    "w": "B"
+  },
+  "R35": {
+    "t": "s",
+    "v": "Bk2",
+    "r": "<t>Bk2</t>",
+    "h": "Bk2",
+    "w": "Bk2"
+  },
+  "S35": {
+    "t": "s",
+    "v": "s",
+    "r": "<t>s</t>",
+    "h": "s",
+    "w": "s"
+  },
+  "T35": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U35": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V35": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W35": {
+    "t": "s",
+    "v": "Z",
+    "r": "<t>Z</t>",
+    "h": "Z",
+    "w": "Z"
+  },
+  "X35": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y35": {
+    "t": "s",
+    "v": "B",
+    "r": "<t>B</t>",
+    "h": "B",
+    "w": "B"
+  },
+  "AI35": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ35": {
+    "t": "e",
+    "v": 7,
+    "f": "(O35/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B36": {
+    "t": "s",
+    "v": "4208BN108",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BN108",
+    "w": "4208BN108"
+  },
+  "C36": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D36": {
+    "t": "n",
+    "v": 108,
+    "w": "108"
+  },
+  "G36": {
+    "t": "s",
+    "v": "4208BN",
+    "r": "<t>4208BN</t>",
+    "h": "4208BN",
+    "w": "4208BN"
+  },
+  "H36": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I36": {
+    "t": "s",
+    "v": "B110-Z-BV",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "B110-Z-BV",
+    "w": "B110-Z-BV"
+  },
+  "J36": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P36": {
+    "t": "s",
+    "v": "B110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "B110",
+    "w": "B110"
+  },
+  "Q36": {
+    "t": "s",
+    "v": "BV",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "BV",
+    "w": "BV"
+  },
+  "R36": {
+    "t": "s",
+    "v": "B",
+    "r": "<t>B</t>",
+    "h": "B",
+    "w": "B"
+  },
+  "T36": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U36": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V36": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W36": {
+    "t": "s",
+    "v": "Z",
+    "r": "<t>Z</t>",
+    "h": "Z",
+    "w": "Z"
+  },
+  "X36": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y36": {
+    "t": "s",
+    "v": "B",
+    "r": "<t>B</t>",
+    "h": "B",
+    "w": "B"
+  },
+  "AI36": {
+    "t": "s",
+    "v": "V",
+    "r": "<t>V</t>",
+    "h": "V",
+    "w": "V"
+  },
+  "AJ36": {
+    "t": "e",
+    "v": 7,
+    "f": "(O36/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B37": {
+    "t": "s",
+    "v": "4208BN110",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BN110",
+    "w": "4208BN110"
+  },
+  "C37": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D37": {
+    "t": "n",
+    "v": 110,
+    "w": "110"
+  },
+  "G37": {
+    "t": "s",
+    "v": "4208BN",
+    "r": "<t>4208BN</t>",
+    "h": "4208BN",
+    "w": "4208BN"
+  },
+  "H37": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I37": {
+    "t": "s",
+    "v": "B110-Z-BV",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "B110-Z-BV",
+    "w": "B110-Z-BV"
+  },
+  "J37": {
+    "t": "n",
+    "v": 2,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "2"
+  },
+  "P37": {
+    "t": "s",
+    "v": "B110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "B110",
+    "w": "B110"
+  },
+  "Q37": {
+    "t": "s",
+    "v": "BV",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "BV",
+    "w": "BV"
+  },
+  "R37": {
+    "t": "s",
+    "v": "B",
+    "r": "<t>B</t>",
+    "h": "B",
+    "w": "B"
+  },
+  "T37": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U37": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V37": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W37": {
+    "t": "s",
+    "v": "Z",
+    "r": "<t>Z</t>",
+    "h": "Z",
+    "w": "Z"
+  },
+  "X37": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y37": {
+    "t": "s",
+    "v": "B",
+    "r": "<t>B</t>",
+    "h": "B",
+    "w": "B"
+  },
+  "AI37": {
+    "t": "s",
+    "v": "V",
+    "r": "<t>V</t>",
+    "h": "V",
+    "w": "V"
+  },
+  "AJ37": {
+    "t": "e",
+    "v": 7,
+    "f": "(O37/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B38": {
+    "t": "s",
+    "v": "4208BN112",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BN112",
+    "w": "4208BN112"
+  },
+  "C38": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D38": {
+    "t": "n",
+    "v": 112,
+    "w": "112"
+  },
+  "G38": {
+    "t": "s",
+    "v": "4208BN",
+    "r": "<t>4208BN</t>",
+    "h": "4208BN",
+    "w": "4208BN"
+  },
+  "H38": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I38": {
+    "t": "s",
+    "v": "B110-Z-B",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "B110-Z-B",
+    "w": "B110-Z-B"
+  },
+  "J38": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P38": {
+    "t": "s",
+    "v": "B110",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "B110",
+    "w": "B110"
+  },
+  "Q38": {
+    "t": "s",
+    "v": "B",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "B",
+    "w": "B"
+  },
+  "R38": {
+    "t": "s",
+    "v": "B",
+    "r": "<t>B</t>",
+    "h": "B",
+    "w": "B"
+  },
+  "T38": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U38": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V38": {
+    "t": "n",
+    "v": 0,
+    "w": "0"
+  },
+  "W38": {
+    "t": "s",
+    "v": "Z",
+    "r": "<t>Z</t>",
+    "h": "Z",
+    "w": "Z"
+  },
+  "X38": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y38": {
+    "t": "s",
+    "v": "B",
+    "r": "<t>B</t>",
+    "h": "B",
+    "w": "B"
+  },
+  "AI38": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ38": {
+    "t": "e",
+    "v": 7,
+    "f": "(O38/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "B39": {
+    "t": "s",
+    "v": "4208BN114",
+    "f": "tbl_adressen[[#This Row],[postcode]]&tbl_adressen[[#This Row],[nr]]&tbl_adressen[[#This Row],[toevoeging]]",
+    "h": "4208BN114",
+    "w": "4208BN114"
+  },
+  "C39": {
+    "t": "s",
+    "v": "Hinderdam",
+    "r": "<t>Hinderdam</t>",
+    "h": "Hinderdam",
+    "w": "Hinderdam"
+  },
+  "D39": {
+    "t": "n",
+    "v": 114,
+    "w": "114"
+  },
+  "G39": {
+    "t": "s",
+    "v": "4208BN",
+    "r": "<t>4208BN</t>",
+    "h": "4208BN",
+    "w": "4208BN"
+  },
+  "H39": {
+    "t": "s",
+    "v": "Gorinchem",
+    "r": "<t>Gorinchem</t>",
+    "h": "Gorinchem",
+    "w": "Gorinchem"
+  },
+  "I39": {
+    "t": "s",
+    "v": "Bk111-Z-B",
+    "f": "tbl_adressen[[#This Row],[GEO-type]]&\"-\"&tbl_adressen[[#This Row],[oriëntatie voor- balkongevel]]&\"-\"&tbl_adressen[[#This Row],[I-code]]",
+    "h": "Bk111-Z-B",
+    "w": "Bk111-Z-B"
+  },
+  "J39": {
+    "t": "n",
+    "v": 1,
+    "f": "COUNTIF(tbl_adressen[Type],tbl_adressen[[#This Row],[Type]])",
+    "w": "1"
+  },
+  "P39": {
+    "t": "s",
+    "v": "Bk111",
+    "f": "tbl_adressen[[#This Row],[woningtype (uniek GO)]]&tbl_adressen[[#This Row],[spiegel]]&tbl_adressen[[#This Row],[vloercode]]&tbl_adressen[[#This Row],[dakcode]]&tbl_adressen[[#This Row],[gevelcode]]",
+    "h": "Bk111",
+    "w": "Bk111"
+  },
+  "Q39": {
+    "t": "s",
+    "v": "B",
+    "f": "tbl_adressen[[#This Row],[ketelcode]]&\"\"&IF(tbl_adressen[[#This Row],[MV-code]]>0,\"-\"&tbl_adressen[[#This Row],[MV-code]],\"\")&IF(tbl_adressen[[#This Row],[LL]]>0,\"-\"&tbl_adressen[[#This Row],[LL]],\"\")&IF(tbl_adressen[[#This Row],[PV-code]]<>\"\",tbl_adressen[[#This Row],[PV-code]],\"\")",
+    "h": "B",
+    "w": "B"
+  },
+  "R39": {
+    "t": "s",
+    "v": "Bk",
+    "r": "<t>Bk</t>",
+    "h": "Bk",
+    "w": "Bk"
+  },
+  "T39": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "U39": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "V39": {
+    "t": "n",
+    "v": 1,
+    "w": "1"
+  },
+  "W39": {
+    "t": "s",
+    "v": "Z",
+    "r": "<t>Z</t>",
+    "h": "Z",
+    "w": "Z"
+  },
+  "X39": {
+    "t": "s",
+    "v": "Kombi Kompakt HRE36/30",
+    "r": "<t>Kombi Kompakt HRE36/30</t>",
+    "h": "Kombi Kompakt HRE36/30",
+    "w": "Kombi Kompakt HRE36/30"
+  },
+  "Y39": {
+    "t": "s",
+    "v": "B",
+    "r": "<t>B</t>",
+    "h": "B",
+    "w": "B"
+  },
+  "AI39": {
+    "t": "s",
+    "f": "IF(tbl_adressen[[#This Row],[aantal]]=\"\",\"\",\"-\"&tbl_adressen[[#This Row],[aantal]]&tbl_adressen[[#This Row],[oriëntatie]]&tbl_adressen[[#This Row],[WP]]&tbl_adressen[[#This Row],[schaduw]])",
+    "v": "",
+    "h": "",
+    "w": ""
+  },
+  "AJ39": {
+    "t": "e",
+    "v": 7,
+    "f": "(O39/SUM(tbl_adressen[GO]))*$AI$1",
+    "w": "#DIV/0!"
+  },
+  "!margins": {
+    "left": 0.7,
+    "right": 0.7,
+    "top": 0.75,
+    "bottom": 0.75,
+    "header": 0.3,
+    "footer": 0.3
+  }
+}
