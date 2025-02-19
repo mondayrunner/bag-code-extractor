@@ -174,45 +174,70 @@
       </div>
     </div>
 
+    <!-- XML Upload Section -->
     <div class="mb-8" v-if="activeTab === 'xml'">
-      <label
-        class="block w-full px-4 py-8 border-2 border-dashed border-gray-300 rounded-lg text-center cursor-pointer hover:border-gray-400"
-        :class="{ 'bg-gray-50': isDragging }"
-        @dragenter.prevent="isDragging = true"
-        @dragleave.prevent="isDragging = false"
-        @dragover.prevent
-        @drop.prevent="handleFileDrop"
-      >
-        <input
-          type="file"
-          class="hidden"
-          accept=".xml"
-          @change="handleFileSelect"
-          ref="xmlFileInput"
-        />
-        <div class="space-y-2">
-          <div class="flex justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-12 w-12 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-              />
-            </svg>
+      <div v-if="!xmlContent">
+        <label
+          class="block w-full px-4 py-8 border-2 border-dashed border-gray-300 rounded-lg text-center cursor-pointer hover:border-gray-400"
+          :class="{ 'bg-gray-50': isDragging }"
+          @dragenter.prevent="isDragging = true"
+          @dragleave.prevent="isDragging = false"
+          @dragover.prevent
+          @drop.prevent="handleFileDrop"
+        >
+          <input
+            type="file"
+            class="hidden"
+            accept=".xml"
+            @change="handleFileSelect"
+            ref="xmlFileInput"
+          />
+          <div class="space-y-2">
+            <div class="flex justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-12 w-12 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                />
+              </svg>
+            </div>
+            <div class="text-gray-600">
+              Sleep je XML bestand hierheen of klik om te bladeren
+            </div>
+            <div class="text-sm text-gray-500">Ondersteund formaat: .xml</div>
           </div>
-          <div class="text-gray-600">
-            Sleep je XML bestand hierheen of klik om te bladeren
-          </div>
-          <div class="text-sm text-gray-500">Ondersteund formaat: .xml</div>
-        </div>
-      </label>
+        </label>
+      </div>
+      <div v-else class="flex justify-end">
+        <button
+          @click="reloadXml"
+          class="px-4 py-2 text-sm bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 flex items-center gap-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+            />
+          </svg>
+          Herlaad XML
+        </button>
+      </div>
     </div>
 
     <!-- Loading State -->
@@ -445,8 +470,6 @@
 <script setup lang="ts">
 import { read, utils } from "xlsx";
 import { DOMParser, XMLSerializer } from "xmldom";
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import { ChevronUpIcon } from "@heroicons/vue/24/outline";
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 
 definePageMeta({
@@ -472,8 +495,8 @@ const excelData = ref<Record<string, ExcelRow[]>>({});
 const xmlContent = ref<string>("");
 const excelFileInput = ref<HTMLInputElement | null>(null);
 const xmlFileInput = ref<HTMLInputElement | null>(null);
-const mainHouseKey = ref<string | null>(null); // Sleutel van de hoofdwoning
-const referenceHouses = ref(new Set<string>()); // Set van referentie-woningen
+const mainHouseKey = ref<string | null>(null);
+const referenceHouses = ref(new Set<string>());
 const generatedXmlFiles = ref<{ filename: string; content: string }[]>([]);
 
 interface DebugMessage {
@@ -483,7 +506,6 @@ interface DebugMessage {
 }
 
 const debugMessages = ref<DebugMessage[]>([]);
-
 const showResetNotification = ref(false);
 
 const addDebugMessage = (
@@ -498,11 +520,11 @@ const addDebugMessage = (
 const selectMainHouse = (postcode: string, nr: string | number) => {
   const key = `${postcode}-${nr}`;
   if (mainHouseKey.value === key) {
-    mainHouseKey.value = null; // Deselecteren
-    referenceHouses.value.clear(); // Referenties wissen als hoofdwoning wegvalt
+    mainHouseKey.value = null;
+    referenceHouses.value.clear();
   } else {
     mainHouseKey.value = key;
-    referenceHouses.value.delete(key); // Zorg dat hoofdwoning geen referentie kan zijn
+    referenceHouses.value.delete(key);
   }
 };
 
@@ -522,9 +544,7 @@ const resetSelections = () => {
   showResetNotification.value = true;
 };
 
-// Verwijder de automatische reset bij tabwissel
 watch(activeTab, () => {
-  // Alleen de notificatie resetten
   showResetNotification.value = false;
 });
 
@@ -534,7 +554,6 @@ const processExcelFile = async (file: File) => {
   addDebugMessage(`Excel bestand verwerken: ${file.name}`, "info");
 
   try {
-    // Reset selections
     mainHouseKey.value = null;
     referenceHouses.value.clear();
     addDebugMessage("Selecties zijn gereset", "info");
@@ -576,10 +595,10 @@ const processExcelFile = async (file: File) => {
     addDebugMessage("Excel bestand succesvol verwerkt", "success");
   } catch (error) {
     const errorMessage =
-      error instanceof Error ? error.message : "Unknown error";
-    addDebugMessage(`Error processing Excel: ${errorMessage}`, "error");
-    console.error("Detailed error:", error);
-    alert(`Error processing Excel file: ${errorMessage}`);
+      error instanceof Error ? error.message : "Onbekende fout";
+    addDebugMessage(`Fout bij verwerken Excel: ${errorMessage}`, "error");
+    console.error("Gedetailleerde fout:", error);
+    alert(`Fout bij verwerken Excel bestand: ${errorMessage}`);
   } finally {
     isLoading.value = false;
   }
@@ -600,13 +619,43 @@ const processXMLFile = async (file: File) => {
     addDebugMessage("XML template succesvol geladen", "success");
   } catch (error) {
     const errorMessage =
-      error instanceof Error ? error.message : "Unknown error";
+      error instanceof Error ? error.message : "Onbekende fout";
     addDebugMessage(`Fout bij verwerken XML: ${errorMessage}`, "error");
-    console.error("Detailed error:", error);
+    console.error("Gedetailleerde fout:", error);
     alert(`Fout bij verwerken XML bestand: ${errorMessage}`);
   } finally {
     isLoading.value = false;
   }
+};
+
+const generateUuid = () => {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    const r = (Math.random() * 16) | 0,
+      v = c === "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+};
+
+const formatXml = (xml: string): string => {
+  let formatted = "";
+  let indent = "";
+  const tab = "  "; // 2 spaties als indentatie
+
+  xml.split(/>\s*</).forEach((node) => {
+    if (node.match(/^\/\w/)) {
+      // Sluitende tag: verminderen indentatie
+      indent = indent.slice(tab.length);
+    }
+
+    formatted += `${indent}<${node}>\n`;
+
+    if (node.match(/^<?\w[^>]*[^/]$/) && !node.match(/^<!/)) {
+      // Openende tag (geen zelfsluitende tag of commentaar): vergroten indentatie
+      indent += tab;
+    }
+  });
+
+  return formatted.trim();
 };
 
 const generateXmlFiles = () => {
@@ -625,16 +674,14 @@ const generateXmlFiles = () => {
   generatedXmlFiles.value = [];
 
   try {
-    // Valideer eerst of de XML content geldig is
-    if (!xmlContent.value.includes("<?xml")) {
-      throw new Error("Ongeldige XML template");
-    }
-
     const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(
-      xmlContent.value,
-      "text/xml"
-    ) as Document;
+    const xmlDoc = parser.parseFromString(xmlContent.value, "text/xml");
+
+    // Controleer op parsefouten
+    const parseError = xmlDoc.getElementsByTagName("parsererror");
+    if (parseError.length > 0) {
+      throw new Error("Ongeldige XML-template: " + parseError[0].textContent);
+    }
 
     // Hoofdwoning ophalen
     const [mainPostcode, mainNr] = mainHouseKey.value.split("-");
@@ -651,20 +698,18 @@ const generateXmlFiles = () => {
     }
 
     const newDoc = xmlDoc.cloneNode(true) as Document;
-    const projectData = (newDoc as Document).getElementsByTagName(
-      "Adresgegevens"
-    )[0];
-    const registratieData = (newDoc as Document).getElementsByTagName(
+    const projectData = newDoc.getElementsByTagName("Adresgegevens")[0];
+    const registratieData = newDoc.getElementsByTagName(
       "RegistratiegegevensInvoer"
     )[0];
 
     if (!projectData || !registratieData) {
       throw new Error(
-        "Geen Adresgegevens of RegistratiegegevensInvoer in XML-template"
+        "XML-template mist vereiste elementen: Adresgegevens of RegistratiegegevensInvoer"
       );
     }
 
-    // Hoofdwoning invullen
+    // Functie om elementen in te stellen of toe te voegen
     const setOrUpdateElement = (
       parent: Element,
       tag: string,
@@ -672,17 +717,17 @@ const generateXmlFiles = () => {
     ) => {
       let elem = parent.getElementsByTagName(tag)[0];
       if (!elem) {
-        elem = (newDoc as Document).createElement(tag);
+        elem = newDoc.createElement(tag);
         parent.appendChild(elem);
       }
       elem.textContent = value;
     };
 
-    // Update adresgegevens
+    // Hoofdwoning invullen
     setOrUpdateElement(projectData, "Straat", mainHouse.adres || "");
     setOrUpdateElement(projectData, "Huisnummer", mainHouse.nr.toString());
     setOrUpdateElement(projectData, "Postcode", mainHouse.postcode);
-    setOrUpdateElement(projectData, "Woonplaats", mainHouse.plaats || "");
+    setOrUpdateElement(projectData, "Woonplaats", mainHouse.plaats || "Breda");
 
     // Representatieve woningen instellen
     setOrUpdateElement(
@@ -692,38 +737,26 @@ const generateXmlFiles = () => {
     );
 
     // Referentie-woningen toevoegen
-    if (referenceHouses.value.size > 0) {
-      const objRegList = registratieData.getElementsByTagName(
+    let objRegList = registratieData.getElementsByTagName(
+      "ObjectRegistratieRepresentatiefLijstInvoer"
+    )[0];
+    if (!objRegList) {
+      objRegList = newDoc.createElement(
         "ObjectRegistratieRepresentatiefLijstInvoer"
-      )[0];
+      );
+      objRegList.setAttribute("Index", "-1");
+      registratieData.appendChild(objRegList);
+    }
 
-      if (!objRegList) {
-        throw new Error(
-          "Kon ObjectRegistratieRepresentatiefLijstInvoer niet vinden in XML"
-        );
-      }
+    // Verwijder bestaande inhoud en voeg GUID toe
+    while (objRegList.childNodes.length > 0) {
+      objRegList.removeChild(objRegList.lastChild!);
+    }
+    const guidList = newDoc.createElement("Guid");
+    guidList.textContent = generateUuid();
+    objRegList.appendChild(guidList);
 
-      // Verwijder bestaande referenties
-      while (objRegList.childNodes.length > 0) {
-        objRegList.removeChild(objRegList.lastChild!);
-      }
-
-      // Voeg de Guid node toe
-      const guidElem = (newDoc as Document).createElement("Guid");
-      guidElem.textContent = "997431f6-db03-4993-9e38-48cf0c2e5a88";
-      objRegList.appendChild(guidElem);
-
-      const objRegInvoer = registratieData.getElementsByTagName(
-        "ObjectRegistratieRepresentatiefInvoer"
-      )[0];
-
-      if (!objRegInvoer) {
-        throw new Error(
-          "Kon ObjectRegistratieRepresentatiefInvoer niet vinden in XML"
-        );
-      }
-
-      // Voeg referentiewoningen toe
+    if (referenceHouses.value.size > 0) {
       let index = 1;
       for (const refKey of referenceHouses.value) {
         const [refPostcode, refNr] = refKey.split("-");
@@ -735,14 +768,19 @@ const generateXmlFiles = () => {
 
         if (!refHouse) continue;
 
-        const newRef = objRegInvoer.cloneNode(true) as Element;
+        const newRef = newDoc.createElement(
+          "ObjectRegistratieRepresentatiefInvoer"
+        );
         newRef.setAttribute("Index", index.toString());
 
-        // Reset en update alleen de benodigde velden
+        const guidRef = newDoc.createElement("Guid");
+        guidRef.textContent = generateUuid();
+        newRef.appendChild(guidRef);
+
         setOrUpdateElement(newRef, "Huisnummer", refHouse.nr.toString());
-        setOrUpdateElement(newRef, "Postcode", refHouse.postcode);
         setOrUpdateElement(newRef, "HuisletterHuisnummertoevoeging", "");
         setOrUpdateElement(newRef, "Detailaanduiding", "");
+        setOrUpdateElement(newRef, "Postcode", refHouse.postcode);
         setOrUpdateElement(newRef, "BagPandId", "");
         setOrUpdateElement(newRef, "BagStandplaatsId", "");
         setOrUpdateElement(newRef, "BagLigplaatsId", "");
@@ -755,23 +793,20 @@ const generateXmlFiles = () => {
     }
 
     const serializer = new XMLSerializer();
-    const newXmlContent = serializer.serializeToString(newDoc);
-
-    if (!newXmlContent || newXmlContent.length === 0) {
-      throw new Error("Gegenereerde XML is leeg");
-    }
+    const rawXmlContent = serializer.serializeToString(newDoc);
+    const formattedXmlContent = formatXml(rawXmlContent);
 
     generatedXmlFiles.value.push({
       filename: `${mainHouse.Type}_${mainPostcode}_${mainNr}.xml`,
-      content: newXmlContent,
+      content: formattedXmlContent,
     });
 
     addDebugMessage(`1 XML-bestand gegenereerd`, "success");
   } catch (error) {
     const errorMessage =
-      error instanceof Error ? error.message : "Unknown error";
-    addDebugMessage(`Error generating XML: ${errorMessage}`, "error");
-    console.error("Error generating XML:", error);
+      error instanceof Error ? error.message : "Onbekende fout";
+    addDebugMessage(`Fout bij genereren XML: ${errorMessage}`, "error");
+    console.error("Fout bij genereren XML:", error);
   } finally {
     isGeneratingXml.value = false;
   }
@@ -803,9 +838,9 @@ const handleFileSelect = async (event: Event) => {
       }
     } catch (error) {
       const errorMessage =
-        error instanceof Error ? error.message : "Unknown error";
+        error instanceof Error ? error.message : "Onbekende fout";
       addDebugMessage(`Fout: ${errorMessage}`, "error");
-      console.error("Error processing file:", error);
+      console.error("Fout bij verwerken bestand:", error);
       alert(`Fout bij verwerken bestand: ${errorMessage}`);
     }
   }
@@ -823,7 +858,7 @@ const handleFileDrop = async (event: DragEvent) => {
       } else if (activeTab.value === "xml" && file.name.match(/\.xml$/i)) {
         await processXMLFile(file);
       } else {
-        const message = `Invalid file type. Please upload a ${
+        const message = `Ongeldig bestandstype. Upload een ${
           activeTab.value === "excel" ? "Excel" : "XML"
         } bestand`;
         addDebugMessage(message, "error");
@@ -831,9 +866,9 @@ const handleFileDrop = async (event: DragEvent) => {
       }
     } catch (error) {
       const errorMessage =
-        error instanceof Error ? error.message : "Unknown error";
+        error instanceof Error ? error.message : "Onbekende fout";
       addDebugMessage(`Fout: ${errorMessage}`, "error");
-      console.error("Error processing dropped file:", error);
+      console.error("Fout bij verwerken bestand:", error);
       alert(`Fout bij verwerken bestand: ${errorMessage}`);
     }
   }
@@ -847,5 +882,13 @@ const reloadExcel = () => {
     excelFileInput.value.value = "";
   }
   addDebugMessage("Excel herlaad modus geactiveerd", "info");
+};
+
+const reloadXml = () => {
+  xmlContent.value = "";
+  if (xmlFileInput.value) {
+    xmlFileInput.value.value = "";
+  }
+  addDebugMessage("XML herlaad modus geactiveerd", "info");
 };
 </script>
