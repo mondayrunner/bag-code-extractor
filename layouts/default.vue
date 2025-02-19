@@ -56,7 +56,7 @@
               >
                 <div class="flex h-16 shrink-0 items-center">
                   <h1 class="text-xl font-bold text-gray-900">
-                    BAG Code Extractor
+                    BAG Vabi Converter
                   </h1>
                 </div>
                 <nav class="flex flex-1 flex-col">
@@ -105,7 +105,7 @@
         class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4"
       >
         <div class="flex h-16 shrink-0 items-center">
-          <h1 class="text-xl font-bold text-gray-900">BAG Code Extractor</h1>
+          <h1 class="text-xl font-bold text-gray-900">BAG Vabi Converter</h1>
         </div>
         <nav class="flex flex-1 flex-col">
           <ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -175,8 +175,6 @@ import {
 import {
   Bars3Icon,
   HomeIcon,
-  BuildingOfficeIcon,
-  MapIcon,
   XMarkIcon,
   DocumentArrowUpIcon,
 } from "@heroicons/vue/24/outline";
@@ -185,18 +183,11 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 
 const navigation = computed(() => [
-  { name: "Dashboard", href: "/", icon: HomeIcon, current: route.path === "/" },
   {
-    name: "Zoekhistorie",
-    href: "/buildings",
-    icon: BuildingOfficeIcon,
-    current: route.path === "/buildings",
-  },
-  {
-    name: "Kaart",
-    href: "/map",
-    icon: MapIcon,
-    current: route.path === "/map",
+    name: "BAG adres zoeken",
+    href: "/",
+    icon: HomeIcon,
+    current: route.path === "/",
   },
   {
     name: "Vabi XML maker",

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div class="mb-8">
       <h2 class="text-2xl font-bold text-gray-900 mb-4">BAG adres zoeken</h2>
       <AddressSearch @search="handleSearch" />
@@ -15,8 +15,8 @@
 
     <div v-if="loading" class="text-gray-600">Loading...</div>
 
-    <AddressDetails 
-      v-if="results && results.length > 0" 
+    <AddressDetails
+      v-if="results && results.length > 0"
       :results="results"
       :debug-info="debugInfo"
       @update:results="updateResults"
@@ -25,36 +25,43 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import AddressSearch from '~/components/AddressSearch.vue'
-import AddressDetails from '~/components/AddressDetails.vue'
+import { ref } from "vue";
+import AddressSearch from "~/components/AddressSearch.vue";
+import AddressDetails from "~/components/AddressDetails.vue";
 
 interface SearchParams {
-  postcode?: string
-  huisnummer?: string
-  pandId?: string
+  postcode?: string;
+  huisnummer?: string;
+  pandId?: string;
 }
 
-const { results, loading, error, debugInfo, fetchBagData, fetchBagDataByPandId } = useBagApi()
+const {
+  results,
+  loading,
+  error,
+  debugInfo,
+  fetchBagData,
+  fetchBagDataByPandId,
+} = useBagApi();
 
 const handleSearch = async (params: SearchParams) => {
   if (params.pandId) {
-    await fetchBagDataByPandId(params.pandId)
+    await fetchBagDataByPandId(params.pandId);
   } else if (params.postcode && params.huisnummer) {
-    await fetchBagData(params.postcode, params.huisnummer)
+    await fetchBagData(params.postcode, params.huisnummer);
   }
-}
+};
 
 const updateResults = (newResults: any[]) => {
-  results.value = newResults
-}
+  results.value = newResults;
+};
 
 definePageMeta({
-  title: 'BAG adres zoeken',
-  layout: 'default'
-})
+  title: "BAG adres zoeken",
+  layout: "default",
+});
 
 useHead({
-  title: 'BAG adres zoeken - BAG Code Extractor'
-})
-</script> 
+  title: "BAG adres zoeken - BAG Code Extractor",
+});
+</script>
