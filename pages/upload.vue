@@ -167,9 +167,9 @@
             </svg>
             <span class="font-medium">
               {{
-                generatedXmlFiles.length > 0
-                  ? "XML bestand gegenereerd en gedownload"
-                  : "XML template geladen en klaar voor gebruik"
+                xmlContent && !generatedXmlFiles.length
+                  ? "XML template geladen en klaar voor gebruik"
+                  : "XML bestand gegenereerd en gedownload"
               }}
             </span>
           </div>
@@ -597,6 +597,7 @@ const resetSelections = () => {
 
 watch(activeTab, () => {
   showResetNotification.value = false;
+  generatedXmlFiles.value = []; // Reset generated XML files when switching tabs
 });
 
 const processExcelFile = async (file: File) => {
@@ -732,6 +733,7 @@ const processExcelFile = async (file: File) => {
 const processXMLFile = async (file: File) => {
   isLoading.value = true;
   debugMessages.value = [];
+  generatedXmlFiles.value = []; // Reset generated files when uploading new XML
   addDebugMessage(`XML bestand verwerken: ${file.name}`, "info");
 
   try {
