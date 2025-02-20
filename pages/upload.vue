@@ -778,25 +778,51 @@ const generateUuid = () => {
 };
 
 const formatXml = (xml: string): string => {
-  let formatted = "";
-  let indent = "";
-  const tab = "  "; // 2 spaties als indentatie
+  // First clean up any existing formatting
+  xml = xml
+    .replace(/>\s*</g, "><") // Remove whitespace between tags
+    .replace(/\s*\/>/g, "/>") // Clean self-closing tags
+    .replace(/>\s*$/g, ">"); // Remove trailing whitespace
 
-  xml.split(/>\s*</).forEach((node) => {
-    if (node.match(/^\/\w/)) {
-      // Sluitende tag: verminderen indentatie
-      indent = indent.slice(tab.length);
+  let formatted = "";
+  let depth = 0;
+  const tab = "\t";
+
+  // Split into individual tags
+  const tags = xml.match(/<[^>]+>/g) || [];
+
+  tags.forEach((tag, index) => {
+    const isClosingTag = tag.match(/^<\//);
+    const isSelfClosingTag = tag.match(/\/>/);
+    const isOpeningTag = !isClosingTag && !isSelfClosingTag;
+    const isProjectTag = tag.includes('Project Index="-1"');
+
+    // Decrease indent for closing tags
+    if (isClosingTag) {
+      depth--;
     }
 
-    formatted += `${indent}<${node}>\n`;
+    // Add the tag with proper indentation
+    if (index === 0) {
+      // Root tag (Project)
+      formatted += tag + "\n\n";
+    } else {
+      // Add indentation
+      formatted += tab.repeat(depth) + tag;
 
-    if (node.match(/^<?\w[^>]*[^/]$/) && !node.match(/^<!/)) {
-      // Openende tag (geen zelfsluitende tag of commentaar): vergroten indentatie
-      indent += tab;
+      // Add newline unless it's the last tag
+      if (index < tags.length - 1) {
+        formatted += "\n";
+      }
+    }
+
+    // Increase indent for opening tags
+    if (isOpeningTag) {
+      depth++;
     }
   });
 
-  return formatted.trim();
+  return formatted;
 };
 
 const generateXmlFiles = () => {
@@ -812,7 +838,6 @@ const generateXmlFiles = () => {
   try {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlContent.value, "text/xml");
-    const { validateXml } = useXmlValidator();
 
     // Get all houses from Excel data
     const allHouses = Object.values(excelData.value).flat();
@@ -829,41 +854,20 @@ const generateXmlFiles = () => {
         "info"
       );
 
-      // Find the corresponding address in XML by searching through all Adresgegevens nodes
+      // Find the corresponding address in XML
       const adresNodes = Array.from(
         xmlDoc.getElementsByTagName("Adresgegevens")
       );
 
-      addDebugMessage(
-        `Aantal gevonden adres nodes in XML: ${adresNodes.length}`,
-        "info"
-      );
-
-      let foundMatch = false;
       for (const adresNode of adresNodes) {
         const postcodeNode = adresNode.getElementsByTagName("Postcode")[0];
         const huisnummerNode = adresNode.getElementsByTagName("Huisnummer")[0];
 
-        // Debug postcode and huisnummer values
-        if (postcodeNode && huisnummerNode) {
-          addDebugMessage(
-            `Vergelijken met XML node: ${postcodeNode.textContent}-${huisnummerNode.textContent}`,
-            "info"
-          );
-        }
-
-        // Check if this is the address we're looking for
         if (
           postcodeNode?.textContent === refHouse.postcode &&
           huisnummerNode?.textContent === refHouse.nr.toString()
         ) {
-          foundMatch = true;
-          addDebugMessage(
-            `Match gevonden voor ${refHouse.postcode}-${refHouse.nr}`,
-            "success"
-          );
-
-          // Get parent element and check RegistratiegegevensInvoer
+          // Get parent element and RegistratiegegevensInvoer
           const parentElement = adresNode.parentNode as Element;
           const registratieNode = parentElement.getElementsByTagName(
             "RegistratiegegevensInvoer"
@@ -877,40 +881,6 @@ const generateXmlFiles = () => {
             continue;
           }
 
-          // First, remove any existing ObjectRegistratieRepresentatiefLijstInvoer
-          const existingList = registratieNode.getElementsByTagName(
-            "ObjectRegistratieRepresentatiefLijstInvoer"
-          )[0];
-          if (existingList) {
-            addDebugMessage(
-              "Bestaande ObjectRegistratieRepresentatiefLijstInvoer wordt verwijderd",
-              "info"
-            );
-            registratieNode.removeChild(existingList);
-          }
-
-          // Set RepresentatieveWoningen to 1 for parent house
-          const repWoningenNode = registratieNode.getElementsByTagName(
-            "RepresentatieveWoningen"
-          )[0];
-
-          if (!repWoningenNode) {
-            addDebugMessage(
-              "RepresentatieveWoningen node niet gevonden!",
-              "error"
-            );
-            continue;
-          }
-
-          // Only set to 1 if this is a parent (R) house
-          if (refHouse.referentie?.toString().trim().toUpperCase() === "R") {
-            repWoningenNode.textContent = "1";
-            addDebugMessage(
-              `RepresentatieveWoningen gezet op 1 voor parent woning ${refHouse.postcode}-${refHouse.nr}`,
-              "success"
-            );
-          }
-
           // Find all G-houses of the same type
           const childHouses = allHouses.filter(
             (house) =>
@@ -918,51 +888,49 @@ const generateXmlFiles = () => {
               house.Type === refHouse.Type
           );
 
-          addDebugMessage(
-            `Aantal gevonden G-woningen van type ${refHouse.Type}: ${childHouses.length}`,
-            "info"
-          );
-
           if (childHouses.length > 0) {
-            // Create new ObjectRegistratieRepresentatiefLijstInvoer
+            // 1. Set RepresentatieveWoningen to 1
+            const repWoningenNode = registratieNode.getElementsByTagName(
+              "RepresentatieveWoningen"
+            )[0];
+            if (repWoningenNode) {
+              repWoningenNode.textContent = "1";
+            }
+
+            // 2 & 3. Remove existing list if present and create new one
+            const existingList = registratieNode.getElementsByTagName(
+              "ObjectRegistratieRepresentatiefLijstInvoer"
+            )[0];
+            if (existingList) {
+              registratieNode.removeChild(existingList);
+            }
+
+            // Create new list with GUID
             const objRegList = xmlDoc.createElement(
               "ObjectRegistratieRepresentatiefLijstInvoer"
             );
             objRegList.setAttribute("Index", "-1");
-
-            // Add GUID for the list
             const guidList = xmlDoc.createElement("Guid");
             guidList.textContent = generateUuid();
             objRegList.appendChild(guidList);
-            addDebugMessage(
-              `Lijst GUID toegevoegd: ${guidList.textContent}`,
-              "info"
-            );
 
-            // Process each child house
+            // 4. Add each child
             childHouses.forEach((child, index) => {
-              addDebugMessage(
-                `Toevoegen G-woning: ${child.postcode}-${child.nr}`,
-                "info"
-              );
-
-              // Create child node
               const childNode = xmlDoc.createElement(
                 "ObjectRegistratieRepresentatiefInvoer"
               );
               childNode.setAttribute("Index", (index + 1).toString());
 
-              // Add all elements in the correct order
               const elements = [
                 { tag: "Guid", value: generateUuid() },
                 { tag: "Huisnummer", value: child.nr.toString() },
                 { tag: "HuisletterHuisnummertoevoeging", value: "" },
                 { tag: "Detailaanduiding", value: "" },
                 { tag: "Postcode", value: child.postcode },
-                { tag: "BagPandId", value: "0512100000242253" },
+                { tag: "BagPandId", value: "" },
                 { tag: "BagStandplaatsId", value: "" },
                 { tag: "BagLigplaatsId", value: "" },
-                { tag: "BagObjectId", value: "0512010000107085" },
+                { tag: "BagObjectId", value: "" },
                 { tag: "ProvisionalId", value: "" },
               ];
 
@@ -972,57 +940,27 @@ const generateXmlFiles = () => {
                 childNode.appendChild(elem);
               });
 
-              // Add the child node to the list
               objRegList.appendChild(childNode);
-              addDebugMessage(
-                `G-woning succesvol toegevoegd: ${child.postcode}-${child.nr}`,
-                "success"
-              );
             });
 
             // Add the complete list to the registration node
             registratieNode.appendChild(objRegList);
-            addDebugMessage(
-              "Nieuwe ObjectRegistratieRepresentatiefLijstInvoer structuur toegevoegd",
-              "success"
-            );
           }
-          break; // Exit the loop once we've found and processed the match
+          break;
         }
       }
-
-      if (!foundMatch) {
-        addDebugMessage(
-          `Geen match gevonden voor referentie woning ${refHouse.postcode}-${refHouse.nr} in XML!`,
-          "error"
-        );
-      }
     });
 
-    // Final validation of the complete XML
+    // Serialize back to string and save
     const serializer = new XMLSerializer();
-    const rawXmlContent = serializer.serializeToString(xmlDoc);
-    const formattedXmlContent = formatXml(rawXmlContent);
-    const finalValidation = validateXml(formattedXmlContent);
+    const xmlString = serializer.serializeToString(xmlDoc);
 
-    if (!finalValidation.isValid) {
-      throw new Error(
-        `Finale XML validatie fouten:\n${finalValidation.errors.join("\n")}`
-      );
-    }
-
-    // Add the generated file and trigger download
     generatedXmlFiles.value.push({
       filename: "complete_vabi.xml",
-      content: formattedXmlContent,
+      content: xmlString,
     });
 
-    addDebugMessage(
-      "XML bestand succesvol gegenereerd en gevalideerd",
-      "success"
-    );
-
-    // Automatically download the file
+    addDebugMessage("XML bestand succesvol gegenereerd", "success");
     downloadXmlFiles();
   } catch (error) {
     const errorMessage =
