@@ -10,7 +10,10 @@
       class="mb-8 bg-gray-50 rounded-lg p-4 border border-gray-200"
     >
       <h3 class="text-lg font-medium text-gray-900 mb-2">Verwerkingsstatus</h3>
-      <div class="space-y-1 max-h-40 overflow-y-auto">
+      <div
+        ref="debugMessagesContainer"
+        class="space-y-1 max-h-40 overflow-y-auto"
+      >
         <div
           v-for="(message, index) in debugMessages"
           :key="index"
@@ -22,6 +25,7 @@
               'text-green-600': message.type === 'success',
               'text-red-600': message.type === 'error',
               'text-blue-600': message.type === 'info',
+              'text-orange-600': message.type === 'warning',
             }"
           >
             {{ message.text }}
@@ -73,36 +77,139 @@
           STAP 2: Upload XML en genereer nieuwe XML
         </button>
       </div>
-    </div>
 
-    <!-- Geselecteerde hiërarchie -->
-    <div v-if="mainHouseKey" class="mb-8 bg-white shadow rounded-lg p-4">
-      <div class="flex justify-between items-start">
-        <div>
-          <h3 class="text-lg font-medium text-gray-900">
-            Geselecteerde Woningen
-          </h3>
-          <div class="mt-2">
-            <p class="text-sm font-semibold">
-              Hoofdwoning:
-              <span class="text-blue-600">{{ mainHouseKey }}</span>
-            </p>
-            <p v-if="referenceHouses.size > 0" class="text-sm mt-2">
-              Referentie-woningen:
-            </p>
-            <ul class="ml-4 list-disc text-sm text-gray-700">
-              <li v-for="refKey in Array.from(referenceHouses)" :key="refKey">
-                {{ refKey }}
-              </li>
-            </ul>
+      <!-- XML Upload Section (Moved here) -->
+      <div v-if="activeTab === 'xml'" class="mt-4">
+        <div class="flex items-center justify-between mb-4">
+          <div v-if="!xmlContent" class="flex-grow">
+            <label
+              class="block w-full px-4 py-8 border-2 border-dashed border-gray-300 rounded-lg text-center cursor-pointer hover:border-gray-400"
+              :class="{ 'bg-gray-50': isDragging }"
+              @dragenter.prevent="isDragging = true"
+              @dragleave.prevent="isDragging = false"
+              @dragover.prevent
+              @drop.prevent="handleFileDrop"
+            >
+              <input
+                type="file"
+                class="hidden"
+                accept=".xml"
+                @change="handleFileSelect"
+                ref="xmlFileInput"
+              />
+              <div class="space-y-2">
+                <div class="flex justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-12 w-12 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                    />
+                  </svg>
+                </div>
+                <div class="text-gray-600">
+                  Sleep je XML bestand hierheen of klik om te bladeren
+                </div>
+                <div class="text-sm text-gray-500">
+                  Ondersteund formaat: .xml
+                </div>
+              </div>
+            </label>
+          </div>
+          <div v-else class="flex-grow flex justify-end">
+            <button
+              @click="reloadXml"
+              class="px-4 py-2 text-sm bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 flex items-center gap-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                />
+              </svg>
+              Herlaad XML
+            </button>
           </div>
         </div>
-        <button
-          @click="resetSelections"
-          class="px-3 py-2 text-sm text-red-600 hover:text-red-800 border border-red-200 rounded-md hover:bg-red-50 transition-colors"
+
+        <!-- Status Notification -->
+        <div
+          v-if="xmlContent"
+          class="mt-4 bg-blue-50 text-blue-700 p-4 rounded-md"
         >
-          Reset Selectie
-        </button>
+          <div class="flex items-center">
+            <svg
+              class="h-5 w-5 mr-2"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span class="font-medium">
+              {{
+                generatedXmlFiles.length > 0
+                  ? "XML bestand gegenereerd en gedownload"
+                  : "XML template geladen en klaar voor gebruik"
+              }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Knoppen -->
+        <div v-if="xmlContent" class="flex space-x-4 mt-4">
+          <button
+            @click="generateXmlFiles"
+            class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 flex items-center gap-2"
+            :disabled="isGeneratingXml"
+          >
+            <svg
+              v-if="isGeneratingXml"
+              class="animate-spin h-4 w-4 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+            {{
+              isGeneratingXml
+                ? "XML bestand genereren..."
+                : "Genereer en download XML bestand"
+            }}
+          </button>
+        </div>
       </div>
     </div>
 
@@ -174,72 +281,6 @@
       </div>
     </div>
 
-    <!-- XML Upload Section -->
-    <div class="mb-8" v-if="activeTab === 'xml'">
-      <div v-if="!xmlContent">
-        <label
-          class="block w-full px-4 py-8 border-2 border-dashed border-gray-300 rounded-lg text-center cursor-pointer hover:border-gray-400"
-          :class="{ 'bg-gray-50': isDragging }"
-          @dragenter.prevent="isDragging = true"
-          @dragleave.prevent="isDragging = false"
-          @dragover.prevent
-          @drop.prevent="handleFileDrop"
-        >
-          <input
-            type="file"
-            class="hidden"
-            accept=".xml"
-            @change="handleFileSelect"
-            ref="xmlFileInput"
-          />
-          <div class="space-y-2">
-            <div class="flex justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-12 w-12 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                />
-              </svg>
-            </div>
-            <div class="text-gray-600">
-              Sleep je XML bestand hierheen of klik om te bladeren
-            </div>
-            <div class="text-sm text-gray-500">Ondersteund formaat: .xml</div>
-          </div>
-        </label>
-      </div>
-      <div v-else class="flex justify-end">
-        <button
-          @click="reloadXml"
-          class="px-4 py-2 text-sm bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 flex items-center gap-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-            />
-          </svg>
-          Herlaad XML
-        </button>
-      </div>
-    </div>
-
     <!-- Loading State -->
     <div v-if="isLoading" class="flex justify-center items-center space-x-2">
       <svg
@@ -270,17 +311,6 @@
 
     <!-- Excel Results Section -->
     <div v-if="activeTab === 'excel' && excelData" class="space-y-6">
-      <!-- Instruction Message -->
-      <div
-        v-if="Object.keys(excelData).length > 0"
-        class="bg-indigo-50 p-4 rounded-md"
-      >
-        <p class="text-indigo-700">
-          Selecteer een hoofdwoning (radio button) en eventueel
-          referentiewoningen (checkboxes).
-        </p>
-      </div>
-
       <div
         v-for="(items, geoType) in excelData"
         :key="geoType"
@@ -294,16 +324,16 @@
           <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
               <tr>
-                <th
+                <!-- <th
                   class="w-20 px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Hoofdwoning
+                  Referentie woning (parent)
                 </th>
                 <th
                   class="w-20 px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Referentie
-                </th>
+                  Representatieve (child)
+                </th> -->
                 <th
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
@@ -324,6 +354,11 @@
                 >
                   Type
                 </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Referentie Status
+                </th>
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -331,19 +366,22 @@
                 v-for="(item, index) in items"
                 :key="index"
                 :class="{
-                  'bg-blue-50': mainHouseKey === `${item.postcode}-${item.nr}`,
-                  'bg-yellow-50': referenceHouses.has(
-                    `${item.postcode}-${item.nr}`
-                  ),
+                  'bg-yellow-50':
+                    item.referentie === 'R' ||
+                    mainHouseKey === `${item.postcode}-${item.nr}`,
+                  'bg-orange-50': item.referentie === 'U',
+                  'bg-slate-50':
+                    item.referentie === 'G' ||
+                    referenceHouses.has(`${item.postcode}-${item.nr}`),
                 }"
               >
-                <td
+                <!-- <td
                   class="w-20 px-3 py-4 whitespace-nowrap text-sm text-gray-900"
                 >
                   <input
                     type="radio"
                     name="mainHouse"
-                    class="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                    class="h-4 w-4 text-yellow-600 rounded border-gray-300 focus:ring-yellow-500"
                     @change="selectMainHouse(item.postcode, item.nr)"
                     :checked="mainHouseKey === `${item.postcode}-${item.nr}`"
                   />
@@ -353,7 +391,7 @@
                 >
                   <input
                     type="checkbox"
-                    class="h-4 w-4 text-yellow-600 rounded border-gray-300 focus:ring-yellow-500"
+                    class="h-4 w-4 text-slate-600 rounded border-gray-300 focus:ring-slate-500"
                     @change="toggleReferenceHouse(item.postcode, item.nr)"
                     :disabled="
                       !mainHouseKey ||
@@ -363,7 +401,7 @@
                       referenceHouses.has(`${item.postcode}-${item.nr}`)
                     "
                   />
-                </td>
+                </td> -->
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   {{ item.postcode }}
                 </td>
@@ -376,6 +414,28 @@
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   {{ item.Type }}
                 </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm">
+                  <span
+                    :class="{
+                      'text-yellow-700 bg-yellow-100 px-2 py-1 rounded':
+                        item.referentie === 'R',
+                      'text-orange-700 bg-orange-100 px-2 py-1 rounded':
+                        item.referentie === 'U',
+                      'text-slate-700 bg-slate-100 px-2 py-1 rounded':
+                        item.referentie === 'G',
+                    }"
+                  >
+                    {{
+                      item.referentie === "R"
+                        ? "Referentie (parent)"
+                        : item.referentie === "U"
+                        ? "Uniek"
+                        : item.referentie === "G"
+                        ? "Representatieve (child)"
+                        : ""
+                    }}
+                  </span>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -383,84 +443,50 @@
       </div>
     </div>
 
-    <!-- XML Results Section -->
-    <div v-if="activeTab === 'xml' && xmlContent" class="space-y-6">
-      <!-- Voor: XML Template -->
-      <div class="bg-white shadow rounded-lg overflow-hidden">
-        <div class="bg-gray-50 px-4 py-3 border-b">
-          <h3 class="text-lg font-medium text-gray-900">
-            XML Template geladen
-          </h3>
-          <p class="text-sm text-gray-500">Template is klaar voor gebruik</p>
-        </div>
-      </div>
-
-      <!-- Knoppen -->
-      <div class="flex space-x-4">
-        <button
-          @click="generateXmlFiles"
-          class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 flex items-center gap-2"
-          :disabled="isGeneratingXml"
-        >
-          <svg
-            v-if="isGeneratingXml"
-            class="animate-spin h-4 w-4 text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              class="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              stroke-width="4"
-            ></circle>
-            <path
-              class="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-            ></path>
-          </svg>
-          {{
-            isGeneratingXml
-              ? "XML bestanden genereren..."
-              : "Genereer XML bestanden"
-          }}
-        </button>
-        <button
-          v-if="generatedXmlFiles.length > 0"
-          @click="downloadXmlFiles"
-          class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
-        >
-          Download {{ generatedXmlFiles.length }} bestanden
-        </button>
-      </div>
-
-      <!-- Na: Generated XML -->
-      <div
-        v-if="generatedXmlFiles.length > 0"
-        class="bg-white shadow rounded-lg overflow-hidden"
-      >
-        <div class="bg-gray-50 px-4 py-3 border-b">
-          <h3 class="text-lg font-medium text-gray-900">
-            Gegenereerde XML bestanden
-          </h3>
-          <p class="text-sm text-gray-500">
-            {{ generatedXmlFiles.length }} bestanden gegenereerd
-          </p>
-        </div>
-        <div class="p-4">
-          <ul class="space-y-2">
-            <li
-              v-for="(file, index) in generatedXmlFiles"
-              :key="index"
-              class="text-sm text-gray-700"
+    <!-- Geselecteerde hiërarchie -->
+    <div
+      v-if="Object.keys(excelData).length > 0"
+      class="mb-8 bg-white shadow rounded-lg p-4 mt-20"
+    >
+      <div>
+        <h3 class="text-lg font-medium text-gray-900">
+          Geselecteerde Woningen
+        </h3>
+        <div class="mt-2 space-y-6">
+          <div v-for="(items, type) in excelData" :key="type">
+            <template
+              v-for="item in items"
+              :key="`${item.postcode}-${item.nr}`"
             >
-              {{ file.filename }}
-            </li>
-          </ul>
+              <div v-if="item.referentie === 'R'" class="mb-4">
+                <div
+                  class="font-semibold text-yellow-700 bg-yellow-50 px-3 py-2 rounded-md"
+                >
+                  Referentie woning (parent): {{ item.postcode }}-{{
+                    item.nr
+                  }}
+                  ({{ item.Type }})
+                </div>
+                <div class="mt-2 ml-4 space-y-2">
+                  <div
+                    v-for="child in items.filter(
+                      (h) =>
+                        h.referentie === 'G' &&
+                        h.Type === item.Type &&
+                        `${h.postcode}-${h.nr}` !==
+                          `${item.postcode}-${item.nr}`
+                    )"
+                    :key="`${child.postcode}-${child.nr}`"
+                    class="text-slate-700 bg-slate-50 px-3 py-2 rounded-md"
+                  >
+                    Representatieve woning (child): {{ child.postcode }}-{{
+                      child.nr
+                    }}
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
         </div>
       </div>
     </div>
@@ -471,6 +497,7 @@
 import { read, utils } from "xlsx";
 import { DOMParser, XMLSerializer } from "xmldom";
 import { XMarkIcon } from "@heroicons/vue/24/outline";
+import { useXmlValidator } from "~/composables/useXmlValidator";
 
 definePageMeta({
   layout: "default",
@@ -485,6 +512,8 @@ interface ExcelRow {
   plaats: string;
   aantal_type?: number;
   code?: string;
+  referentie?: string;
+  Referentie?: string;
 }
 
 const activeTab = ref("excel");
@@ -498,23 +527,45 @@ const xmlFileInput = ref<HTMLInputElement | null>(null);
 const mainHouseKey = ref<string | null>(null);
 const referenceHouses = ref(new Set<string>());
 const generatedXmlFiles = ref<{ filename: string; content: string }[]>([]);
+const excelFileName = ref<string>("");
 
 interface DebugMessage {
   text: string;
   timestamp: string;
-  type: "info" | "error" | "success";
+  type: "info" | "error" | "success" | "warning";
 }
 
 const debugMessages = ref<DebugMessage[]>([]);
 const showResetNotification = ref(false);
+const debugMessagesContainer = ref<HTMLElement | null>(null);
+
+// Add watch for debug messages
+watch(
+  debugMessages,
+  (newMessages) => {
+    if (newMessages.length > 0) {
+      nextTick(() => {
+        if (debugMessagesContainer.value) {
+          const container = debugMessagesContainer.value;
+          container.scrollTop = container.scrollHeight;
+        }
+      });
+    }
+  },
+  { deep: true }
+);
 
 const addDebugMessage = (
   text: string,
-  type: "info" | "error" | "success" = "info"
+  type: "info" | "error" | "success" | "warning" = "info"
 ) => {
   const timestamp = new Date().toLocaleTimeString();
   debugMessages.value.push({ text, timestamp, type });
   console.log(`${type.toUpperCase()}: ${text}`);
+};
+
+const clearDebugMessages = () => {
+  debugMessages.value = [];
 };
 
 const selectMainHouse = (postcode: string, nr: string | number) => {
@@ -554,6 +605,9 @@ const processExcelFile = async (file: File) => {
   addDebugMessage(`Excel bestand verwerken: ${file.name}`, "info");
 
   try {
+    // Store Excel filename without extension
+    excelFileName.value = file.name.replace(/\.(xlsx|xls)$/i, "");
+
     mainHouseKey.value = null;
     referenceHouses.value.clear();
     addDebugMessage("Selecties zijn gereset", "info");
@@ -574,6 +628,50 @@ const processExcelFile = async (file: File) => {
       defval: "",
     });
 
+    // Debug log to check the raw data
+    console.log("Raw Excel data:", data);
+
+    // First find the reference house (R)
+    const referenceHouse = data.find((row) => {
+      const ref = row.referentie || row.Referentie; // Check both lowercase and uppercase
+      return ref?.toString().trim().toUpperCase() === "R";
+    });
+
+    // If we found a reference house, set it as main house and find its children
+    if (referenceHouse && referenceHouse.postcode && referenceHouse.nr) {
+      mainHouseKey.value = `${referenceHouse.postcode}-${referenceHouse.nr}`;
+      addDebugMessage(
+        `Referentie woning gevonden: ${mainHouseKey.value}`,
+        "success"
+      );
+
+      // Find all houses marked as 'G' of the same type as the reference house
+      const childHouses = data.filter((row) => {
+        const ref = row.referentie || row.Referentie; // Check both lowercase and uppercase
+        return (
+          row.Type === referenceHouse.Type && // Same type as reference house
+          ref?.toString().trim().toUpperCase() === "G" && // Is marked as child
+          row.postcode &&
+          row.nr && // Has required fields
+          `${row.postcode}-${row.nr}` !== mainHouseKey.value
+        ); // Not the reference house itself
+      });
+
+      // Clear and add all marked child houses
+      referenceHouses.value.clear();
+      childHouses.forEach((house) => {
+        const key = `${house.postcode}-${house.nr}`;
+        referenceHouses.value.add(key);
+      });
+
+      if (childHouses.length > 0) {
+        addDebugMessage(
+          `${childHouses.length} representatieve woningen (G) van type "${referenceHouse.Type}" gevonden`,
+          "success"
+        );
+      }
+    }
+
     excelData.value = data.reduce((acc, curr) => {
       if (!curr.postcode || !curr.nr) return acc;
 
@@ -581,6 +679,28 @@ const processExcelFile = async (file: File) => {
       if (!acc[type]) {
         acc[type] = [];
       }
+
+      // Debug log for each row's referentie value
+      console.log(
+        `Processing row - Postcode: ${curr.postcode}, Nr: ${
+          curr.nr
+        }, Referentie: ${curr.referentie || curr.Referentie}`
+      );
+
+      // Ensure referentie is properly captured and normalized
+      let referentie = curr.referentie || curr.Referentie;
+      if (referentie) {
+        // Normalize the value to uppercase and trim
+        referentie = referentie.toString().trim().toUpperCase();
+        // Only accept valid values
+        if (!["R", "U", "G"].includes(referentie)) {
+          console.warn(
+            `Invalid referentie value found: ${referentie} for ${curr.postcode}-${curr.nr}`
+          );
+          referentie = undefined;
+        }
+      }
+
       acc[type].push({
         adres: curr.adres || "",
         postcode: curr.postcode,
@@ -588,9 +708,14 @@ const processExcelFile = async (file: File) => {
         "GEO-type": curr["GEO-type"] || "",
         Type: type,
         plaats: curr.plaats || "Breda",
+        referentie: referentie,
       });
+
       return acc;
     }, {} as Record<string, ExcelRow[]>);
+
+    // Debug log to check processed data
+    console.log("Processed Excel data:", excelData.value);
 
     addDebugMessage("Excel bestand succesvol verwerkt", "success");
   } catch (error) {
@@ -615,8 +740,22 @@ const processXMLFile = async (file: File) => {
       throw new Error("XML bestand is leeg");
     }
 
+    // Validate XML using our new validator
+    const { validateXml } = useXmlValidator();
+    const validationResult = validateXml(text);
+
+    // Add warnings to debug messages
+    validationResult.warnings.forEach((warning) => {
+      addDebugMessage(warning, "warning");
+    });
+
+    if (!validationResult.isValid) {
+      const errorMessages = validationResult.errors.join("\n");
+      throw new Error(`XML validatie fouten:\n${errorMessages}`);
+    }
+
     xmlContent.value = text;
-    addDebugMessage("XML template succesvol geladen", "success");
+    addDebugMessage("XML template succesvol gevalideerd en geladen", "success");
   } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : "Onbekende fout";
@@ -659,149 +798,230 @@ const formatXml = (xml: string): string => {
 };
 
 const generateXmlFiles = () => {
-  if (!xmlContent.value || !mainHouseKey.value) {
-    addDebugMessage("Geen XML-template of hoofdwoning geselecteerd", "error");
-    return;
-  }
-
-  if (!excelData.value || Object.keys(excelData.value).length === 0) {
-    addDebugMessage("Geen Excel data beschikbaar", "error");
+  if (!xmlContent.value || !excelData.value) {
+    addDebugMessage("Geen XML-template of Excel data beschikbaar", "error");
     return;
   }
 
   isGeneratingXml.value = true;
-  addDebugMessage("XML-bestanden genereren...", "info");
+  addDebugMessage("XML bestand genereren...", "info");
   generatedXmlFiles.value = [];
 
   try {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlContent.value, "text/xml");
+    const { validateXml } = useXmlValidator();
 
-    // Controleer op parsefouten
-    const parseError = xmlDoc.getElementsByTagName("parsererror");
-    if (parseError.length > 0) {
-      throw new Error("Ongeldige XML-template: " + parseError[0].textContent);
-    }
+    // Get all houses from Excel data
+    const allHouses = Object.values(excelData.value).flat();
 
-    // Hoofdwoning ophalen
-    const [mainPostcode, mainNr] = mainHouseKey.value.split("-");
-    const mainHouse = Object.values(excelData.value)
-      .flat()
-      .find(
-        (row) => row.postcode === mainPostcode && row.nr.toString() === mainNr
-      );
-
-    if (!mainHouse) {
-      throw new Error(
-        `Geen Excel-data gevonden voor hoofdwoning ${mainHouseKey.value}`
-      );
-    }
-
-    const newDoc = xmlDoc.cloneNode(true) as Document;
-    const projectData = newDoc.getElementsByTagName("Adresgegevens")[0];
-    const registratieData = newDoc.getElementsByTagName(
-      "RegistratiegegevensInvoer"
-    )[0];
-
-    if (!projectData || !registratieData) {
-      throw new Error(
-        "XML-template mist vereiste elementen: Adresgegevens of RegistratiegegevensInvoer"
-      );
-    }
-
-    // Functie om elementen in te stellen of toe te voegen
-    const setOrUpdateElement = (
-      parent: Element,
-      tag: string,
-      value: string
-    ) => {
-      let elem = parent.getElementsByTagName(tag)[0];
-      if (!elem) {
-        elem = newDoc.createElement(tag);
-        parent.appendChild(elem);
-      }
-      elem.textContent = value;
-    };
-
-    // Hoofdwoning invullen
-    setOrUpdateElement(projectData, "Straat", mainHouse.adres || "");
-    setOrUpdateElement(projectData, "Huisnummer", mainHouse.nr.toString());
-    setOrUpdateElement(projectData, "Postcode", mainHouse.postcode);
-    setOrUpdateElement(projectData, "Woonplaats", mainHouse.plaats || "Breda");
-
-    // Representatieve woningen instellen
-    setOrUpdateElement(
-      registratieData,
-      "RepresentatieveWoningen",
-      referenceHouses.value.size > 0 ? "1" : "0"
+    // Find all reference houses (R)
+    const referenceHouses = allHouses.filter(
+      (house) => house.referentie?.toString().trim().toUpperCase() === "R"
     );
 
-    // Referentie-woningen toevoegen
-    let objRegList = registratieData.getElementsByTagName(
-      "ObjectRegistratieRepresentatiefLijstInvoer"
-    )[0];
-    if (!objRegList) {
-      objRegList = newDoc.createElement(
-        "ObjectRegistratieRepresentatiefLijstInvoer"
+    // Process each reference house
+    referenceHouses.forEach((refHouse) => {
+      addDebugMessage(
+        `Verwerken referentie woning: ${refHouse.postcode}-${refHouse.nr}`,
+        "info"
       );
-      objRegList.setAttribute("Index", "-1");
-      registratieData.appendChild(objRegList);
-    }
 
-    // Verwijder bestaande inhoud en voeg GUID toe
-    while (objRegList.childNodes.length > 0) {
-      objRegList.removeChild(objRegList.lastChild!);
-    }
-    const guidList = newDoc.createElement("Guid");
-    guidList.textContent = generateUuid();
-    objRegList.appendChild(guidList);
+      // Find the corresponding address in XML by searching through all Adresgegevens nodes
+      const adresNodes = Array.from(
+        xmlDoc.getElementsByTagName("Adresgegevens")
+      );
 
-    if (referenceHouses.value.size > 0) {
-      let index = 1;
-      for (const refKey of referenceHouses.value) {
-        const [refPostcode, refNr] = refKey.split("-");
-        const refHouse = Object.values(excelData.value)
-          .flat()
-          .find(
-            (row) => row.postcode === refPostcode && row.nr.toString() === refNr
+      addDebugMessage(
+        `Aantal gevonden adres nodes in XML: ${adresNodes.length}`,
+        "info"
+      );
+
+      let foundMatch = false;
+      for (const adresNode of adresNodes) {
+        const postcodeNode = adresNode.getElementsByTagName("Postcode")[0];
+        const huisnummerNode = adresNode.getElementsByTagName("Huisnummer")[0];
+
+        // Debug postcode and huisnummer values
+        if (postcodeNode && huisnummerNode) {
+          addDebugMessage(
+            `Vergelijken met XML node: ${postcodeNode.textContent}-${huisnummerNode.textContent}`,
+            "info"
+          );
+        }
+
+        // Check if this is the address we're looking for
+        if (
+          postcodeNode?.textContent === refHouse.postcode &&
+          huisnummerNode?.textContent === refHouse.nr.toString()
+        ) {
+          foundMatch = true;
+          addDebugMessage(
+            `Match gevonden voor ${refHouse.postcode}-${refHouse.nr}`,
+            "success"
           );
 
-        if (!refHouse) continue;
+          // Get parent element and check RegistratiegegevensInvoer
+          const parentElement = adresNode.parentNode as Element;
+          const registratieNode = parentElement.getElementsByTagName(
+            "RegistratiegegevensInvoer"
+          )[0];
 
-        const newRef = newDoc.createElement(
-          "ObjectRegistratieRepresentatiefInvoer"
-        );
-        newRef.setAttribute("Index", index.toString());
+          if (!registratieNode) {
+            addDebugMessage(
+              "RegistratiegegevensInvoer node niet gevonden!",
+              "error"
+            );
+            continue;
+          }
 
-        const guidRef = newDoc.createElement("Guid");
-        guidRef.textContent = generateUuid();
-        newRef.appendChild(guidRef);
+          // First, remove any existing ObjectRegistratieRepresentatiefLijstInvoer
+          const existingList = registratieNode.getElementsByTagName(
+            "ObjectRegistratieRepresentatiefLijstInvoer"
+          )[0];
+          if (existingList) {
+            addDebugMessage(
+              "Bestaande ObjectRegistratieRepresentatiefLijstInvoer wordt verwijderd",
+              "info"
+            );
+            registratieNode.removeChild(existingList);
+          }
 
-        setOrUpdateElement(newRef, "Huisnummer", refHouse.nr.toString());
-        setOrUpdateElement(newRef, "HuisletterHuisnummertoevoeging", "");
-        setOrUpdateElement(newRef, "Detailaanduiding", "");
-        setOrUpdateElement(newRef, "Postcode", refHouse.postcode);
-        setOrUpdateElement(newRef, "BagPandId", "");
-        setOrUpdateElement(newRef, "BagStandplaatsId", "");
-        setOrUpdateElement(newRef, "BagLigplaatsId", "");
-        setOrUpdateElement(newRef, "BagObjectId", "");
-        setOrUpdateElement(newRef, "ProvisionalId", "");
+          // Set RepresentatieveWoningen to 1 for parent house
+          const repWoningenNode = registratieNode.getElementsByTagName(
+            "RepresentatieveWoningen"
+          )[0];
 
-        objRegList.appendChild(newRef);
-        index++;
+          if (!repWoningenNode) {
+            addDebugMessage(
+              "RepresentatieveWoningen node niet gevonden!",
+              "error"
+            );
+            continue;
+          }
+
+          // Only set to 1 if this is a parent (R) house
+          if (refHouse.referentie?.toString().trim().toUpperCase() === "R") {
+            repWoningenNode.textContent = "1";
+            addDebugMessage(
+              `RepresentatieveWoningen gezet op 1 voor parent woning ${refHouse.postcode}-${refHouse.nr}`,
+              "success"
+            );
+          }
+
+          // Find all G-houses of the same type
+          const childHouses = allHouses.filter(
+            (house) =>
+              house.referentie?.toString().trim().toUpperCase() === "G" &&
+              house.Type === refHouse.Type
+          );
+
+          addDebugMessage(
+            `Aantal gevonden G-woningen van type ${refHouse.Type}: ${childHouses.length}`,
+            "info"
+          );
+
+          if (childHouses.length > 0) {
+            // Create new ObjectRegistratieRepresentatiefLijstInvoer
+            const objRegList = xmlDoc.createElement(
+              "ObjectRegistratieRepresentatiefLijstInvoer"
+            );
+            objRegList.setAttribute("Index", "-1");
+
+            // Add GUID for the list
+            const guidList = xmlDoc.createElement("Guid");
+            guidList.textContent = generateUuid();
+            objRegList.appendChild(guidList);
+            addDebugMessage(
+              `Lijst GUID toegevoegd: ${guidList.textContent}`,
+              "info"
+            );
+
+            // Process each child house
+            childHouses.forEach((child, index) => {
+              addDebugMessage(
+                `Toevoegen G-woning: ${child.postcode}-${child.nr}`,
+                "info"
+              );
+
+              // Create child node
+              const childNode = xmlDoc.createElement(
+                "ObjectRegistratieRepresentatiefInvoer"
+              );
+              childNode.setAttribute("Index", (index + 1).toString());
+
+              // Add all elements in the correct order
+              const elements = [
+                { tag: "Guid", value: generateUuid() },
+                { tag: "Huisnummer", value: child.nr.toString() },
+                { tag: "HuisletterHuisnummertoevoeging", value: "" },
+                { tag: "Detailaanduiding", value: "" },
+                { tag: "Postcode", value: child.postcode },
+                { tag: "BagPandId", value: "0512100000242253" },
+                { tag: "BagStandplaatsId", value: "" },
+                { tag: "BagLigplaatsId", value: "" },
+                { tag: "BagObjectId", value: "0512010000107085" },
+                { tag: "ProvisionalId", value: "" },
+              ];
+
+              elements.forEach(({ tag, value }) => {
+                const elem = xmlDoc.createElement(tag);
+                elem.textContent = value;
+                childNode.appendChild(elem);
+              });
+
+              // Add the child node to the list
+              objRegList.appendChild(childNode);
+              addDebugMessage(
+                `G-woning succesvol toegevoegd: ${child.postcode}-${child.nr}`,
+                "success"
+              );
+            });
+
+            // Add the complete list to the registration node
+            registratieNode.appendChild(objRegList);
+            addDebugMessage(
+              "Nieuwe ObjectRegistratieRepresentatiefLijstInvoer structuur toegevoegd",
+              "success"
+            );
+          }
+          break; // Exit the loop once we've found and processed the match
+        }
       }
+
+      if (!foundMatch) {
+        addDebugMessage(
+          `Geen match gevonden voor referentie woning ${refHouse.postcode}-${refHouse.nr} in XML!`,
+          "error"
+        );
+      }
+    });
+
+    // Final validation of the complete XML
+    const serializer = new XMLSerializer();
+    const rawXmlContent = serializer.serializeToString(xmlDoc);
+    const formattedXmlContent = formatXml(rawXmlContent);
+    const finalValidation = validateXml(formattedXmlContent);
+
+    if (!finalValidation.isValid) {
+      throw new Error(
+        `Finale XML validatie fouten:\n${finalValidation.errors.join("\n")}`
+      );
     }
 
-    const serializer = new XMLSerializer();
-    const rawXmlContent = serializer.serializeToString(newDoc);
-    const formattedXmlContent = formatXml(rawXmlContent);
-
+    // Add the generated file and trigger download
     generatedXmlFiles.value.push({
-      filename: `${mainHouse.Type}_${mainPostcode}_${mainNr}.xml`,
+      filename: "complete_vabi.xml",
       content: formattedXmlContent,
     });
 
-    addDebugMessage(`1 XML-bestand gegenereerd`, "success");
+    addDebugMessage(
+      "XML bestand succesvol gegenereerd en gevalideerd",
+      "success"
+    );
+
+    // Automatically download the file
+    downloadXmlFiles();
   } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : "Onbekende fout";
@@ -814,11 +1034,21 @@ const generateXmlFiles = () => {
 
 const downloadXmlFiles = () => {
   generatedXmlFiles.value.forEach((file) => {
+    const now = new Date();
+    const year = now.getFullYear().toString().slice(-2);
+    const month = (now.getMonth() + 1).toString().padStart(2, "0");
+    const day = now.getDate().toString().padStart(2, "0");
+    const datePrefix = `${year}${month}${day}`;
+
+    const filename = excelFileName.value
+      ? `${datePrefix}_${excelFileName.value}.xml`
+      : `${datePrefix}_complete_vabi.xml`;
+
     const blob = new Blob([file.content], { type: "application/xml" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = file.filename;
+    link.download = filename;
     link.click();
     URL.revokeObjectURL(url);
   });
@@ -829,6 +1059,7 @@ const handleFileSelect = async (event: Event) => {
   const input = event.target as HTMLInputElement;
   if (input.files?.length) {
     const file = input.files[0];
+    clearDebugMessages(); // Clear previous messages
     addDebugMessage(`Bestand geselecteerd: ${file.name}`, "info");
     try {
       if (activeTab.value === "excel") {
@@ -851,6 +1082,7 @@ const handleFileDrop = async (event: DragEvent) => {
   const files = event.dataTransfer?.files;
   if (files?.length) {
     const file = files[0];
+    clearDebugMessages(); // Clear previous messages
     addDebugMessage(`Bestand geplaatst: ${file.name}`, "info");
     try {
       if (activeTab.value === "excel" && file.name.match(/\.(xlsx|xls)$/i)) {
@@ -878,9 +1110,11 @@ const reloadExcel = () => {
   excelData.value = {};
   mainHouseKey.value = null;
   referenceHouses.value.clear();
+  excelFileName.value = ""; // Clear filename
   if (excelFileInput.value) {
     excelFileInput.value.value = "";
   }
+  clearDebugMessages();
   addDebugMessage("Excel herlaad modus geactiveerd", "info");
 };
 
@@ -889,6 +1123,7 @@ const reloadXml = () => {
   if (xmlFileInput.value) {
     xmlFileInput.value.value = "";
   }
+  clearDebugMessages();
   addDebugMessage("XML herlaad modus geactiveerd", "info");
 };
 </script>
