@@ -789,42 +789,42 @@ const formatXml = (xml: string): string => {
   let formatted = "";
   let depth = 0;
   const tab = "\t";
+  const baseIndent = 5; // Base indentation level for the XML structure
 
-  // Split into individual tags
-  const tags = xml.match(/<[^>]+>/g) || [];
+  // Split into individual tags and text content
+  const parts = xml.match(/<[^>]+>|[^<>]+/g) || [];
 
-  tags.forEach((tag, index) => {
-    const isClosingTag = tag.match(/^<\//);
-    const isSelfClosingTag = tag.match(/\/>/);
-    const isOpeningTag = !isClosingTag && !isSelfClosingTag;
-    const isProjectTag = tag.includes('Project Index="-1"');
+  parts.forEach((part, index) => {
+    const isClosingTag = part.match(/^<\//);
+    const isSelfClosingTag = part.match(/\/>/);
+    const isOpeningTag = part.match(/^<[^/]/);
+    const isText = !isOpeningTag && !isClosingTag && !isSelfClosingTag;
 
-    // Decrease indent for closing tags
+    // Handle indentation for closing tags
     if (isClosingTag) {
       depth--;
     }
 
-    // Add the tag with proper indentation
-    if (index === 0) {
-      // Root tag (Project)
-      formatted += tag + "\n\n";
-    } else {
-      // Add indentation
-      formatted += tab.repeat(depth) + tag;
-
-      // Add newline unless it's the last tag
-      if (index < tags.length - 1) {
-        formatted += "\n";
-      }
+    // Add indentation
+    if (!isText || part.trim()) {
+      formatted += "\n" + tab.repeat(baseIndent + depth);
     }
 
-    // Increase indent for opening tags
-    if (isOpeningTag) {
+    // Add the part
+    formatted += part;
+
+    // Increase depth for opening tags
+    if (isOpeningTag && !isSelfClosingTag) {
       depth++;
     }
   });
 
-  return formatted;
+  // Clean up extra whitespace and return
+  return formatted
+    .trim()
+    .replace(/\n\s*\n/g, "\n") // Remove extra blank lines
+    .replace(/>\s+</g, ">\n<") // Ensure proper line breaks between tags
+    .replace(/(<[^/][^>]*>)\s*(<\/[^>]*>)/g, "$1$2"); // Keep empty tags on same line
 };
 
 const generateXmlFiles = () => {
@@ -899,25 +899,49 @@ const generateXmlFiles = () => {
               repWoningenNode.textContent = "1";
             }
 
-            // 2 & 3. Remove existing list if present and create new one
-            const existingList = registratieNode.getElementsByTagName(
+            // Get existing list or create new one if it doesn't exist
+            let objRegList = registratieNode.getElementsByTagName(
               "ObjectRegistratieRepresentatiefLijstInvoer"
             )[0];
-            if (existingList) {
-              registratieNode.removeChild(existingList);
+
+            if (!objRegList) {
+              // Only create new list if it doesn't exist
+              objRegList = xmlDoc.createElement(
+                "ObjectRegistratieRepresentatiefLijstInvoer"
+              );
+              objRegList.setAttribute("Index", "-1");
+
+              const guidList = xmlDoc.createElement("Guid");
+              guidList.textContent = generateUuid();
+              objRegList.appendChild(xmlDoc.createTextNode("\n\t\t\t\t\t\t"));
+              objRegList.appendChild(guidList);
+
+              registratieNode.appendChild(
+                xmlDoc.createTextNode("\n\t\t\t\t\t")
+              );
+              registratieNode.appendChild(objRegList);
+            } else {
+              // Keep existing list and Guid, just add children
+              const existingGuid = objRegList
+                .getElementsByTagName("Guid")[0]
+                ?.cloneNode(true);
+              if (!existingGuid) {
+                // If somehow there's no Guid, create one
+                const guidNode = xmlDoc.createElement("Guid");
+                guidNode.textContent = generateUuid();
+                objRegList.appendChild(xmlDoc.createTextNode("\n\t\t\t\t\t\t"));
+                objRegList.appendChild(guidNode);
+              } else {
+                // Clear list but keep the Guid
+                objRegList.textContent = "";
+                objRegList.appendChild(xmlDoc.createTextNode("\n\t\t\t\t\t\t"));
+                objRegList.appendChild(existingGuid);
+              }
             }
 
-            // Create new list with GUID
-            const objRegList = xmlDoc.createElement(
-              "ObjectRegistratieRepresentatiefLijstInvoer"
-            );
-            objRegList.setAttribute("Index", "-1");
-            const guidList = xmlDoc.createElement("Guid");
-            guidList.textContent = generateUuid();
-            objRegList.appendChild(guidList);
-
-            // 4. Add each child
+            // 4. Add each child with proper indentation
             childHouses.forEach((child, index) => {
+              objRegList.appendChild(xmlDoc.createTextNode("\n\t\t\t\t\t\t"));
               const childNode = xmlDoc.createElement(
                 "ObjectRegistratieRepresentatiefInvoer"
               );
@@ -937,16 +961,20 @@ const generateXmlFiles = () => {
               ];
 
               elements.forEach(({ tag, value }) => {
+                childNode.appendChild(
+                  xmlDoc.createTextNode("\n\t\t\t\t\t\t\t")
+                );
                 const elem = xmlDoc.createElement(tag);
                 elem.textContent = value;
                 childNode.appendChild(elem);
               });
 
+              childNode.appendChild(xmlDoc.createTextNode("\n\t\t\t\t\t\t"));
               objRegList.appendChild(childNode);
             });
 
-            // Add the complete list to the registration node
-            registratieNode.appendChild(objRegList);
+            // Add final newline and indentation
+            objRegList.appendChild(xmlDoc.createTextNode("\n\t\t\t\t\t"));
           }
           break;
         }
