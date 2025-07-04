@@ -6,6 +6,8 @@ interface SearchResult {
   address: string;
   street: string;
   houseNumber: string;
+  houseLetter: string;
+  houseNumberAddition: string;
   postalCode: string;
   city: string;
   gebruiksdoel: string;
@@ -397,20 +399,27 @@ export const useBagApi = () => {
             )}\n`;
           }
 
+          const huisnummer =
+            nummeraanduidingData.nummeraanduiding.huisnummer || "";
+          const huisletter =
+            nummeraanduidingData.nummeraanduiding.huisletter || "";
+          const huisnummertoevoeging =
+            nummeraanduidingData.nummeraanduiding.huisnummertoevoeging || "";
+
           relatedAddresses.push({
             nummeraanduidingId:
               nummeraanduidingData.nummeraanduiding.identificatie,
             verblijfsobjectId:
               verblijfsobject.verblijfsobject.verblijfsobject.identificatie,
-            address: `${streetName} ${
-              nummeraanduidingData.nummeraanduiding.huisnummer
-            }${nummeraanduidingData.nummeraanduiding.huisletter || ""}, ${
+            address: `${streetName} ${huisnummer}${huisletter}${
+              huisnummertoevoeging ? "-" + huisnummertoevoeging : ""
+            }, ${
               nummeraanduidingData.nummeraanduiding.postcode
             } ${woonplaatsName}`,
             street: streetName,
-            houseNumber: `${nummeraanduidingData.nummeraanduiding.huisnummer}${
-              nummeraanduidingData.nummeraanduiding.huisletter || ""
-            }`,
+            houseNumber: huisnummer,
+            houseLetter: huisletter,
+            houseNumberAddition: huisnummertoevoeging,
             postalCode: nummeraanduidingData.nummeraanduiding.postcode || "",
             city: woonplaatsName,
             gebruiksdoel:

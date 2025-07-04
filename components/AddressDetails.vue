@@ -154,6 +154,18 @@
                     scope="col"
                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
+                    Huisletter
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Toevoeging
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
                     Postcode
                   </th>
                   <th
@@ -210,6 +222,12 @@
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {{ related.houseNumber || "Onbekend" }}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {{ related.houseLetter || "-" }}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {{ related.houseNumberAddition || "-" }}
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {{ related.postalCode || "Onbekend" }}
@@ -281,6 +299,8 @@ interface RelatedAddress {
   address: string;
   street: string;
   houseNumber: string;
+  houseLetter: string;
+  houseNumberAddition: string;
   postalCode: string;
   city: string;
   gebruiksdoel: string;
@@ -293,6 +313,8 @@ interface BuildingResult {
   address: string;
   street: string;
   houseNumber: string;
+  houseLetter: string;
+  houseNumberAddition: string;
   postalCode: string;
   city: string;
   gebruiksdoel: string;
@@ -323,6 +345,8 @@ const exportToExcel = () => {
       Type: "Hoofdadres",
       Straat: result.street || "Onbekend",
       Huisnummer: result.houseNumber || "Onbekend",
+      Huisletter: result.houseLetter || "-",
+      "Huisnummer toevoeging": result.houseNumberAddition || "-",
       Postcode: result.postalCode || "Onbekend",
       Plaats: result.city || "Onbekend",
       Gebruiksdoel: result.gebruiksdoel || "Onbekend",
@@ -343,6 +367,8 @@ const exportToExcel = () => {
           Type: "Gerelateerd adres",
           Straat: related.street || "Onbekend",
           Huisnummer: related.houseNumber || "Onbekend",
+          Huisletter: related.houseLetter || "-",
+          "Huisnummer toevoeging": related.houseNumberAddition || "-",
           Postcode: related.postalCode || "Onbekend",
           Plaats: related.city || "Onbekend",
           Gebruiksdoel: related.gebruiksdoel || "Onbekend",
